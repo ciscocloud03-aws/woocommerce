@@ -20,7 +20,7 @@ pipeline {
     stage('Checkout Gitlab') {
       steps {
         checkout changelog: false,
-         scm: scmGit(branches: [[name: 'yejin']],
+         scm: scmGit(branches: [[name: 'main']],
                      userRemoteConfigs: [
                          [ credentialsId: "${params.gitlabCredential}",
                            url: 'https://github.com/ciscocloud03-aws/woocommerce.git']
@@ -64,7 +64,7 @@ pipeline {
               - 11d
         ''') {
           node(POD_LABEL) {
-              git url: 'https://github.com/ciscocloud03-aws/woocommerce.git', branch: 'yejin'
+              git url: 'https://github.com/ciscocloud03-aws/woocommerce.git', branch: 'main'
 
               // // Maven 빌드 실행
               // container('maven') {
@@ -94,7 +94,7 @@ pipeline {
         steps {
             git credentialsId: "${params.gitlabCredential}",
                 url: "${params.githelmaddress}",
-                branch: 'yejin'
+                branch: 'main'
         }
         post {
                 failure {
@@ -110,7 +110,7 @@ pipeline {
         steps {
             withCredentials([usernamePassword(credentialsId: "${params.gitlabCredential}", passwordVariable: 'password', usernameVariable: 'username')]) {
             sh "git init"
-            sh "git checkout yejin"
+            sh "git checkout main"
             sh "sed -i 's@version:.*@version: ${env.BUILD_NUMBER}@g' ./values.yaml"
             sh "sed -i 's@repository:.*@repository: nexus.ihp001.dev@g' ./values.yaml"
             sh "git add ."
@@ -118,7 +118,7 @@ pipeline {
             sh "git config --global user.name ${params.gitlabEmail}"
             sh "git commit -m '[UPDATE] 5ka ${GIT_COMMIT} image versioning'"
             sh "git remote set-url origin ${params.githelmshortddress}"
-            sh "git push -f origin yejin"
+            sh "git push -f origin main"
             }
         }
     }
