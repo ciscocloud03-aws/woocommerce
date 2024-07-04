@@ -62,23 +62,14 @@ pipeline {
               - sleep
               args: 
               - 11d
-            - name: maven
-              image: maven:3.9.8-amazoncorretto-8-al2023
-              resources:
-                requests:
-                  memory: "512Mi"
-                  cpu: "500m"
-                limits:
-                  memory: "1Gi"
-                  cpu: "1"
         ''') {
           node(POD_LABEL) {
               git url: 'https://github.com/ciscocloud03-aws/woocommerce.git', branch: 'yejin'
 
-              // Maven 빌드 실행
-              container('maven') {
-                  sh "mvn clean install" 
-              }
+              // // Maven 빌드 실행
+              // container('maven') {
+              //     sh "mvn clean install" 
+              // }
 
               // Docker 작업 실행
               container('docker') {
