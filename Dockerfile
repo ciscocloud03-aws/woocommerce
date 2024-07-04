@@ -4,13 +4,16 @@ FROM wordpress:latest
 # 필요한 패키지를 설치합니다.
 RUN apt-get update && apt-get install -y \
     unzip \
-    && rm -rf /var/lib/apt/lists/* && apt-get intsall -y git
+    && rm -rf /var/lib/apt/lists/*
 
-# WooCommerce 플러그인을 다운로드하고 압축을 풉니다.
-RUN git clone
+# 모든 파일을 /workspace 디렉토리로 복사합니다.
+COPY . /workspace
 
-# WordPress의 wp-config.php 파일을 복사하여 설정합니다.
-COPY wp-config.php /var/www/html/
+# 작업 디렉토리를 /workspace로 설정합니다.
+WORKDIR /workspace
+
+# WordPress의 wp-config.php 파일을 적절한 위치로 복사합니다.
+RUN cp wp-config.php /var/www/html/ && cp . /var/www/html/wp-content/plugins/woocommerce 
 
 # WordPress와 WooCommerce의 권한을 설정합니다.
 RUN chown -R www-data:www-data /var/www/html/wp-content/plugins/woocommerce \
