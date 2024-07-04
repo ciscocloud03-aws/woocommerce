@@ -13,7 +13,7 @@ COPY . /workspace
 WORKDIR /workspace
 
 # WordPress의 wp-config.php 파일을 적절한 위치로 복사합니다.
-RUN cp wp-config.php /var/www/html/ && cp woocommerce /var/www/html/wp-content/plugins/woocommerce 
+RUN cp wp-config.php /var/www/html/ && cp -r woocommerce /var/www/html/wp-content/plugins/woocommerce 
 
 # WordPress와 WooCommerce의 권한을 설정합니다.
 RUN chown -R www-data:www-data /var/www/html/wp-content/plugins/woocommerce \
