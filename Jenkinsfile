@@ -102,12 +102,12 @@ pipeline {
             containers:
             - name: docker
               image: docker
-              securityContext:
-                privileged: true
-              args: ["dockerd", "-H", "tcp://0.0.0.0:2377"]
               readinessProbe:
                 exec:
                   command: [sh, -c, "ls -l /var/run/docker.sock"]
+              args: ["dockerd", "-H", "tcp://0.0.0.0:2377"]
+              securityContext:
+                privileged: true
               volumeMounts:
               - name: docker-socket
                 mountPath: /var/run
