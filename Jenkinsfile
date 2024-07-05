@@ -72,7 +72,7 @@ pipeline {
     string(name: 'githelmshortddress', defaultValue: '', description: 'git helm repository')    
     string(name: 'ecrrepositoryCredential', defaultValue: 'woocommerce')
     string(name: 'ecrrepository', defaultValue: 'https://339712790288.dkr.ecr.ap-northeast-2.amazonaws.com')
-    string(name: 'namespace', defaultValue: 'woo')
+    string(name: 'namespace', defaultValue: 'devops-tools')
   }
   stages {
     stage('Checkout Gitlab') {
