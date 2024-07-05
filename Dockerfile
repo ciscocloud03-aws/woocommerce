@@ -2,7 +2,7 @@
 FROM wordpress:latest
 
 # 필요한 패키지를 설치합니다.
-RUN apt-get update && \
+RUN apt-get -y update && \
     apt-get install -y unzip && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
