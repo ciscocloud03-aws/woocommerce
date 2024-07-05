@@ -59,9 +59,9 @@
 
 pipeline {
   agent any
-//  tools {
-//    maven 'my_maven'
-//  }
+ tools {
+   git 'Default'
+ }
 
   parameters {
     string(name: 'gitlabName', defaultValue: 'smth-hyj')
@@ -126,24 +126,31 @@ pipeline {
               - 99d
         ''') {
           node(POD_LABEL) {
-            container('docker') {
-              script {
-                checkout scm
-              }
-            }
 
-            script{
-                stage('Push Docker image') {
-                  def app = docker.build("smthhyj/woocommerce") // Docker 이미지를 빌드합니다.
-                  docker.withRegistry('339712790288.dkr.ecr.ap-northeast-2.amazonaws.com', 'woocommerce') {
-                  app.push("${env.BUILD_NUMBER}") // 이미지를 특정 태그로 푸시합니다.
-                  app.push("latest") // 이미지를 최신 버전으로 푸시합니다.
-                   }
-                  }
+        stage('Build') {
+            steps {
+                container('docker') {
+                    script {
+                        sh "docker build -t smthhyj/woocommerce${env.BUILD_NUMBER} ."
+                    }
                 }
-               }
-              }
             }
+        }
+
+        stage('Test') {
+            steps {
+                container('docker') {
+                    script {
+                        sh '''
+                        # Docker 컨테이너에서 테스트 실행
+                        docker run --rm smthhyj/woocommerce /bin/bash
+                        '''
+                    }
+                }
+            }
+        }
+               }
+              } 
           }
         }
       }
