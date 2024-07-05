@@ -102,6 +102,8 @@ pipeline {
             containers:
             - name: docker
               image: docker
+              securityContext:
+                privileged: true
               readinessProbe:
                 exec:
                   command: [sh, -c, "ls -l /var/run/docker.sock"]
