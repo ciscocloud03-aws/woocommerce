@@ -121,7 +121,6 @@ pipeline {
               - sleep
               args: 
               - 99d
-            - name: 
         ''') {
           node(POD_LABEL) {
 
