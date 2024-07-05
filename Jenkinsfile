@@ -133,7 +133,6 @@ spec:
     - 99d
                 ''') {
                     node(POD_LABEL) {
-                        stage('Build Docker Image') {
                             container('docker') {
                                 script {
                                     // AWS ECR 로그인
@@ -146,16 +145,14 @@ spec:
                                     // 이미지 푸시
                                     sh "docker push ${ECR_REGISTRY}/${ECR_REPOSITORY}:${IMAGE_TAG}"
                                 }
-                            }
                         }
 
-                        stage('Deploy to EKS') {
                             container('kubectl') {
                                 script {
                                     withCredentials([file(credentialsId: KUBECONFIG_CREDENTIALS_ID, variable: 'KUBECONFIG')]) {
                                         // Kubernetes 마니페스트 적용
                                         sh 'kubectl apply -f woocommerce-deploy.yaml -f woocommerce-service.yaml'
-                                    }
+                                    
                                 }
                             }
                         }
