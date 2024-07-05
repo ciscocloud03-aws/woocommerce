@@ -1,11 +1,6 @@
 # 베이스 이미지를 지정합니다.
 FROM wordpress:latest
 
-# 필요한 패키지를 설치합니다.
-RUN apt-get install -y unzip && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
-
 # 모든 파일을 /workspace 디렉토리로 복사합니다.
 COPY . /workspace
 
