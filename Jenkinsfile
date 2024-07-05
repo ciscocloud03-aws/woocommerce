@@ -135,13 +135,12 @@ pipeline {
             container('docker-daemon') {
                 script {
                   sh '''
-                  apt-get -y udpate
-                  apt-get -y install curl unzip
-                  curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-                  unzip awscliv2.zip
-                  sudo ./aws/install
-                  apt-get -y install git
-                  apt-get -y update
+                  apt-get -y udpate &&
+                  apt-get -y install curl unzip git &&
+                  apt-get -y update &&
+                  curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" &&
+                  unzip awscliv2.zip &&
+                  sudo ./aws/install &&
                   '''
                 }
             }
