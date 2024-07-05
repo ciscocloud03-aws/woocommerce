@@ -139,6 +139,9 @@ pipeline {
                   curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
                   unzip awscliv2.zip
                   sudo ./aws/install
+                  apt-get -y update
+                  apt-get -y install git
+                  apt-get -y update
                   '''
                 }
             }
