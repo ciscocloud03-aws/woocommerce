@@ -105,9 +105,7 @@ pipeline {
               readinessProbe:
                 exec:
                   command: [sh, -c, "ls -l /var/run/docker.sock"]
-              ports:
-              - containerPort: 2377
-                hostPort: 2376
+              args: ["dockerd", "-H", "tcp://0.0.0.0:2377"]
               securityContext:
                 privileged: true
               volumeMounts:
@@ -128,7 +126,6 @@ pipeline {
               - 99d
         ''') {
           node(POD_LABEL) {
-
             container('docker') {
               script {
                 checkout scm
