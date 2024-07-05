@@ -21,16 +21,16 @@ pipeline {
             steps {
                 script {
                     // AWS ECR 로그인
-                    sh 'aws ecr get-login-password --region ${AWS_REGION} | docker login --username AWS --password-stdin ${ECR_REGISTRY}'
-                    
+                    sh "aws ecr get-login-password --region ${AWS_REGION} | docker login --username AWS --password-stdin ${ECR_REGISTRY}"
+
                     // Docker 이미지 빌드
-                    sh 'docker build -t ${ECR_REPOSITORY}:${IMAGE_TAG} .'
+                    sh "docker build -t ${ECR_REPOSITORY}:${IMAGE_TAG} ."
                     
                     // 이미지에 태그 추가
-                    sh 'docker tag ${ECR_REPOSITORY}:${IMAGE_TAG} ${ECR_REGISTRY}/${ECR_REPOSITORY}:${IMAGE_TAG}'
+                    sh "docker tag ${ECR_REPOSITORY}:${env.BUILD_NUMBER} ${ECR_REGISTRY}/${ECR_REPOSITORY}:${env.BUILD_NUMBER}"
                     
                     // 이미지 푸시
-                    sh 'docker push ${ECR_REGISTRY}/${ECR_REPOSITORY}:${IMAGE_TAG}'
+                    sh "docker push ${ECR_REGISTRY}/${ECR_REPOSITORY}:${IMAGE_TAG}"
                 }
             }
         }
