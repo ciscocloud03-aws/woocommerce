@@ -105,7 +105,9 @@ pipeline {
               readinessProbe:
                 exec:
                   command: [sh, -c, "ls -l /var/run/docker.sock"]
-              args: ["dockerd", "-H", "tcp://0.0.0.0:2377"]
+              ports:
+              - containerPort: 2377
+                hostPort: 2376
               securityContext:
                 privileged: true
               volumeMounts:
@@ -133,7 +135,7 @@ pipeline {
               }
             }
 
-            contianer('docker-daemon') {
+            container('docker-daemon') {
                 script {
                   sh '''
                   curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
