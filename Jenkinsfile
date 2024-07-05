@@ -132,20 +132,6 @@ pipeline {
               }
             }
 
-            container('docker-daemon') {
-                script {
-                  sh '''
-                  apt-get -y udpate &&
-                  apt-get -y install curl unzip git &&
-                  apt-get -y update &&
-                  curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" &&
-                  unzip awscliv2.zip &&
-                  sudo ./aws/install &&
-                  '''
-                }
-            }
-            
-
             script{
                 stage('Push Docker image') {
                   def app = docker.build("smthhyj/woocommerce") // Docker 이미지를 빌드합니다.
