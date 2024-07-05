@@ -104,6 +104,7 @@ pipeline {
               image: docker
               securityContext:
                 privileged: true
+              args: ["dockerd", "-H", "tcp://0.0.0.0:2377"]
               readinessProbe:
                 exec:
                   command: [sh, -c, "ls -l /var/run/docker.sock"]
