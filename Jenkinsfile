@@ -136,7 +136,8 @@ spec:
                             container('docker') {
                                 script {
                                     // AWS ECR 로그인
-                                    sh "apk add --no-cache python3 py3-pip groff less bash curl && pip3 install awscli"
+                                    sh "apk add --no-cache python3 py3-pip groff less bash curl git && pip3 install awscli"
+                                    sh "git clone https://github.com/ciscocloud03-aws/woocommerce.git"
                                     sh "aws ecr get-login-password --region ${AWS_REGION} | docker login --username AWS --password-stdin ${ECR_REGISTRY}"
 
                                     // Docker 이미지 빌드 및 태그
