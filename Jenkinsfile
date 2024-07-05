@@ -136,6 +136,7 @@ spec:
                             container('docker') {
                                 script {
                                     // AWS ECR 로그인
+                                    sh "pip install awscli --upgrade --user"
                                     sh "aws ecr get-login-password --region ${AWS_REGION} | docker login --username AWS --password-stdin ${ECR_REGISTRY}"
 
                                     // Docker 이미지 빌드 및 태그
