@@ -127,28 +127,28 @@ pipeline {
         ''') {
           node(POD_LABEL) {
 
-        stage('Build') {
-            steps {
-                container('docker') {
-                    script {
-                        sh "docker build -t smthhyj/woocommerce${env.BUILD_NUMBER} ."
+            stage('Build') {
+                steps {
+                    container('docker') {
+                        script {
+                            sh "docker build -t smthhyj/woocommerce${env.BUILD_NUMBER} ."
+                        }
                     }
                 }
             }
-        }
 
-        stage('Test') {
-            steps {
-                container('docker') {
-                    script {
-                        sh '''
-                        # Docker 컨테이너에서 테스트 실행
-                        docker run --rm smthhyj/woocommerce /bin/bash
-                        '''
+            stage('Test') {
+                steps {
+                    container('docker') {
+                        script {
+                            sh '''
+                            # Docker 컨테이너에서 테스트 실행
+                            docker run --rm smthhyj/woocommerce /bin/bash
+                            '''
+                        }
                     }
                 }
             }
-        }
                }
               } 
           }
