@@ -8,7 +8,7 @@ COPY . /tmp
 WORKDIR /tmp
 
 RUN cp -rf /tmp/wp-config.php /var/www/html/ \
-    && cp -rf /tmp/woocommerce/ /var/www/html/wp-content/plugins/
+    && cp -rf /tmp/woocommerce /var/www/html/wp-content/plugins/
 
 WORKDIR /var/www/html
 
