@@ -100,7 +100,7 @@ spec:
 
                             container('kubectl') {
                                 script {
-                                    withCredentials([string(credentialsId: "${KUBECONFIG_CREDENTIALS_ID}", variable: 'KUBECONFIG')]) {
+                                    withCredentials([file(credentialsId: "${KUBECONFIG_CREDENTIALS_ID}", variable: 'KUBECONFIG')]) {
                                         // Kubernetes 마니페스트 적용
                                         sh 'kubectl apply -f woocommerce-deploy.yaml -f woocommerce-service.yaml'
                                     
