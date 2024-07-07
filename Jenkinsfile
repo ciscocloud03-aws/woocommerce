@@ -115,7 +115,7 @@ spec:
                     url: "${params.githelmaddress}",
                     branch: 'main'
                 script {
-                    withCredentials([usernamePassword(credentialsId: "${params.gitlabCredential}", passwordVariable: 'password', usernameVariable: 'username')]) {
+                    withCredentials([usernamePassword(credentialsId: "${KUBECONFIG_CREDENTIALS_ID}", passwordVariable: 'password', usernameVariable: 'username')]) {
                         sh "git init"
                         sh "git checkout main"
                         sh "sed -i 's@version:.*@version: ${env.BUILD_NUMBER}@g' ./values.yaml"
