@@ -5,7 +5,7 @@ USER root
 # 모든 파일을 /tmp 디렉토리로 복사합니다.
 COPY . /tmp
 
-RUN cp -rf /tmpwp-config.php /var/www/html/ \
+RUN cp -rf /tmp/wp-config.php /var/www/html/ \
     && cp -rf /tmp/woocommerce/ /var/www/html/wp-content/plugins/woocommerce
 
 USER www-data
