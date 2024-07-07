@@ -78,11 +78,6 @@ spec:
                                 script {
                                     // AWS ECR 로그인
                                     sh "apk add --no-cache python3 py3-pip groff less bash curl git iptables && pip3 install awscli"
-                                }
-                            }
-                            container('docker-daemon') {
-                                script {
-                                    sh "apk add --no-cache python3 py3-pip groff less bash curl git && pip3 install awscli"
                                     sh "git clone https://github.com/ciscocloud03-aws/woocommerce.git /home/jenkins/agent/workspace/woocommerce"
                                     sh "aws ecr get-login-password --region ${AWS_REGION} | docker login --username AWS --password-stdin ${ECR_REGISTRY}"
 
@@ -91,9 +86,10 @@ spec:
                                     sh "docker tag ${ECR_REPOSITORY}:${env.BUILD_NUMBER} ${ECR_REGISTRY}/${ECR_REPOSITORY}:${env.BUILD_NUMBER}"
 
                                     // 이미지 푸시
-                                    sh "docker push ${ECR_REGISTRY}/${ECR_REPOSITORY}:${IMAGE_TAG}"                                    
+                                    sh "docker push ${ECR_REGISTRY}/${ECR_REPOSITORY}:${IMAGE_TAG}"
                                 }
                             }
+
                             container('kubectl') {
                                 script {
                                     withCredentials([file(credentialsId: KUBECONFIG_CREDENTIALS_ID, variable: 'KUBECONFIG')]) {
