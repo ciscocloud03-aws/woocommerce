@@ -12,10 +12,8 @@ WORKDIR /tmp
 RUN echo "Starting copy of wp-config.php and woocommerce plugin"
 
 # WordPress의 wp-config.php 파일을 적절한 위치로 복사합니다.
-RUN cp -f /tmp/wp-config.php /var/www/html/ \
-    && echo "Copied wp-config.php" \
+RUN cp -rf /tmp/wp-config.php /var/www/html/ \
     && cp -rf /tmp/woocommerce /var/www/html/wp-content/plugins/woocommerce \
-    && echo "Copied woocommerce plugin"
 
 USER www-data
 
