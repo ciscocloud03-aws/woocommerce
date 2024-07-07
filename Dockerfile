@@ -11,6 +11,8 @@ WORKDIR /tmp
 # 디버깅을 위한 출력 추가
 RUN echo "Starting copy of wp-config.php and woocommerce plugin"
 
+RUN ls -l /tmp
+
 # WordPress의 wp-config.php 파일을 적절한 위치로 복사합니다.
 RUN cp -rf /tmp/wp-config.php /var/www/html/ \
     && cp -rf /tmp/woocommerce /var/www/html/wp-content/plugins/woocommerce
