@@ -2,6 +2,7 @@ pipeline {
     agent any
 
     environment {
+        AWS_CREDENTIALS = credentials('1659864f-6006-482b-9094-6bfbb2a73759')
         ECR_REGISTRY = '339712790288.dkr.ecr.ap-northeast-2.amazonaws.com'
         ECR_REPOSITORY = 'woocommerce'
         IMAGE_TAG = 'latest'
@@ -84,10 +85,12 @@ spec:
                                     // Docker 이미지 빌드 및 태그
                                     sh "docker build --no-cache -t ${ECR_REGISTRY}/${ECR_REPOSITORY}:${env.BUILD_NUMBER} ."
                                     sh "docker images"
-                                    sh "docker tag ${ECR_REGISTRY}/${ECR_REPOSITORY}:${env.BUILD_NUMBER} ${ECR_REGISTRY}/${ECR_REPOSITORY}:${IMAGE_TAG}"
+                                    sh "docker tag ${ECR_REGISTRY}/${ECR_REPOSITORY}:${env.BUILD_NUMBER} ${ECR_REPOSITORY}:${IMAGE_TAG}"
 
                                     // 이미지 푸시
-                                    sh "docker push ${ECR_REGISTRY}/${ECR_REPOSITORY}:${IMAGE_TAG}"
+                                    docker.withRegistry("${param.ecrrepository}", 'ecr:ap-northeast-2') {
+                                    docker.image('${ECR_REPOSITORY}:${IMAGE_TAG}').push()
+
                                 }
                             }
 
