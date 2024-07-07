@@ -74,7 +74,7 @@ spec:
     - 99d
                 ''') {
                     node(POD_LABEL) {
-                            container('docker') {
+                            container('docker-daemon') {
                                 script {
                                     // AWS ECR 로그인
                                     sh "apk add --no-cache python3 py3-pip groff less bash curl git iptables && pip3 install awscli"
