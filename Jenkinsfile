@@ -109,27 +109,6 @@ spec:
       
     
   
-        stage('Update 5ka Manifest Repository') {
-            steps {
-                git credentialsId: "${params.gitlabCredential}",
-                    url: "${params.githelmaddress}",
-                    branch: 'main'
-                script {
-                    withCredentials([usernamePassword(credentialsId: "${KUBECONFIG_CREDENTIALS_ID}", passwordVariable: 'password', usernameVariable: 'username')]) {
-                        sh "git init"
-                        sh "git checkout main"
-                        sh "sed -i 's@version:.*@version: ${env.BUILD_NUMBER}@g' ./values.yaml"
-                        sh "sed -i 's@repository:.*@repository: nexus.ihp001.dev@g' ./values.yaml"
-                        sh "git add ."
-                        sh "git config --global user.email ${params.gitlabName}"
-                        sh "git config --global user.name ${params.gitlabEmail}"
-                        sh "git commit -m '[UPDATE] 5ka ${GIT_COMMIT} image versioning'"
-                        sh "git remote set-url origin ${params.githelmshortddress}"
-                        sh "git push -f origin main"
-                    }
-                }
-            }
-        }
     }
 
     post {
