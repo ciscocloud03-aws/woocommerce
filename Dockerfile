@@ -8,9 +8,6 @@ COPY . /tmp
 # 작업 디렉토리를 /tmp로 설정합니다.
 WORKDIR /tmp
 
-# 디버깅을 위한 출력 추가
-RUN echo "Starting copy of wp-config.php and woocommerce plugin"
-
 RUN ls -l /tmp
 
 # WordPress의 wp-config.php 파일을 적절한 위치로 복사합니다.
