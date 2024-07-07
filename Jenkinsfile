@@ -108,8 +108,8 @@ spec:
             }
         }
       }
-    }
-  }
+    
+  
         stage('Update 5ka Manifest Repository') {
             steps {
                 git credentialsId: "${params.gitlabCredential}",
