@@ -49,7 +49,7 @@ spec:
     emptyDir: {}
   containers:
   - name: docker
-    image: docker:27.0.3
+    image: docker:20.10.7
     readinessProbe:
       exec:
         command: [sh, -c, "ls -l /var/run/docker.sock"]
@@ -60,7 +60,7 @@ spec:
     - name: docker-socket
       mountPath: /var/run
   - name: docker-daemon
-    image: docker:27.0.3-dind
+    image: docker:20.10.7-dind
     securityContext:
       privileged: true
     volumeMounts:
