@@ -8,10 +8,6 @@ pipeline {
         IMAGE_TAG = 'latest'
         KUBECONFIG_CREDENTIALS_ID = 'bc64ae01-1aa6-4fc7-af5b-30c5982d471d'
         AWS_REGION = 'ap-northeast-2'
-        ARGOCD_SERVER = 'a30ea858830404f2c818c4c1ee2d32ca-915993451.ap-northeast-2.elb.amazonaws.com'
-        ARGOCD_USERNAME = 'admin'
-        ARGOCD_PASSWORD = credentials('argocd')
-        GIT_REPO = 'https://github.com/ciscocloud03-aws/woocommerce.git'
     }
 
     parameters {
@@ -77,16 +73,6 @@ spec:
     - sleep
     args: 
     - 99d
-  - name: argocd
-    image: argoproj/argocd:latest
-    tty: true
-    env:
-    - name: ARGOCD_SERVER
-      value: "a30ea858830404f2c818c4c1ee2d32ca-915993451.ap-northeast-2.elb.amazonaws.com"
-    - name: ARGOCD_USERNAME
-      value: admin
-    - name: ARGOCD_PASSWORD
-      value: "9PuhjAF16EZPdRP3"
                 ''') {
                     node(POD_LABEL) {
                             container('docker') {
@@ -107,36 +93,43 @@ spec:
                                 }
                             }
 
-                            container('argocd') {
-                                script {
-                                    sh "argocd login $ARGOCD_SERVER --username $ARGOCD_USERNAME --password $ARGOCD_PASSWORD --insecure"
-                                    sh "argocd app sync woocommerce"
-                                }
-                            }
-
                             container('kubectl') {
                                 script {
-                                    sh """
-                                    sed -i 's|image: ${param.ecrrepository}/woocommerce:.*|image: ${param.ecrrepository}/woocommerce:${env.BUILD_NUMBER}|g' woocommerce-deploy.yaml
-                                    git config --global user.email "you@example.com"
-                                    git config --global user.name "Your Name"
-                                    git add woocommerce-deploy.yaml
-                                    git commit -m "Update image to latest"
-                                    git push origin main                                    
-                                    """
-                                  }
+                                    withCredentials([file(credentialsId: "${KUBECONFIG_CREDENTIALS_ID}", variable: 'KUBECONFIG')]) {
+                                        // Kubernetes 마니페스트 적용
+                                        sh 'kubectl apply -f woocommerce-deploy.yaml -f woocommerce-service.yaml'
+                                    
                                 }
-                    
-                            container('argocd') {
-                                script {
-                                    sh "argocd app sync woocommerce"
-                                }
-                            }
-
                             }
                         }
                     }
                 }
+            }
+        }
+      
+    
+  
+         stage('Update 5ka Manifest Repository') {
+             steps {
+                 git credentialsId: "${params.gitlabCredential}",
+                     url: "${params.githelmaddress}",
+                     branch: 'main'
+                 script {
+                     withCredentials([usernamePassword(credentialsId: "${KUBECONFIG_CREDENTIALS_ID}", passwordVariable:" ${params.gitlabCredential.password}", usernameVariable: "${params.gitlabCredential.id}")]) {
+                         sh "git init"
+                         sh "git checkout main"
+                         sh "sed -i 's@image: 339712790288.dkr.ecr.ap-northeast-2.amazonaws.com/woocommerce:*@version: 339712790288.dkr.ecr.ap-northeast-2.amazonaws.com/woocommerce:${env.BUILD_NUMBER}@g' woocommerce-deploy.yaml"
+                         sh "git add ."
+                         sh "git config --global user.email ${params.gitlabName}"
+                         sh "git config --global user.name ${params.gitlabEmail}"
+                         sh "git commit -m '[UPDATE] 5ka ${GIT_COMMIT} image versioning'"
+                         sh "git remote set-url origin ${params.githelmshortddress}"
+                         sh "git push -f origin main"
+                     }
+                 }
+             }
+         }
+        
     }
 
     post {
