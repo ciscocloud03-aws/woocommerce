@@ -88,7 +88,7 @@ spec:
                                     sh "docker tag ${ECR_REGISTRY}/${ECR_REPOSITORY}:${env.BUILD_NUMBER} ${ECR_REPOSITORY}:${IMAGE_TAG}"
 
                                     // 이미지 푸시
-                                    sh "docker push ${ECR_REPOSITORY}:${IMAGE_TAG}"
+                                    sh "docker push ${ECR_REGISTRY}/${ECR_REPOSITORY}:${env.BUILD_NUMBER}"
 
                                 }
                             }
