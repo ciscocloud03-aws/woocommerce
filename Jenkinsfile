@@ -47,6 +47,9 @@ spec:
   volumes:
   - name: docker-socket
     emptyDir: {}
+  - name: dockerd
+    hostPath:
+      path: /var/run/docker.sock
   containers:
   - name: docker
     image: docker:20.10.7
@@ -59,6 +62,8 @@ spec:
     volumeMounts:
     - name: docker-socket
       mountPath: /var/run
+    - name: dockerd
+      mountPath: /var/run/docker.sock
   - name: docker-daemon
     image: docker:20.10.7-dind
     securityContext:
