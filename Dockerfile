@@ -8,12 +8,11 @@ COPY . /tmp
 WORKDIR /tmp
 
 RUN cp -rf /tmp/wp-config.php /var/www/html/ \
-    && cp -rf /tmp/woocommerce /var/www/html/wp-content/plugins/ && ls -l /var/www/html/wp-content/plugins
-
+    && cp -rf /tmp/woocommerce /var/www/html/wp-content/plugins/
 WORKDIR /var/www/html
 
 # WordPress와 WooCommerce의 권한을 설정합니다.
-RUN chown -R www-data:www-data /var/www/html/wp-content/plugins/woocommerce \
+RUN ls -l /var/www/html/wp-content/plugins && chown -R www-data:www-data /var/www/html/wp-content/plugins/woocommerce \
     && chmod -R 755 /var/www/html/wp-content/plugins/woocommerce
 
 USER www-data
