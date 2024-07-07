@@ -106,7 +106,7 @@ spec:
                 }
             }
         }
-      }
+      
     
   
         stage('Update 5ka Manifest Repository') {
