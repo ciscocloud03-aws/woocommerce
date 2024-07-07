@@ -6,7 +6,7 @@ pipeline {
         ECR_REGISTRY = '339712790288.dkr.ecr.ap-northeast-2.amazonaws.com'
         ECR_REPOSITORY = 'woocommerce'
         IMAGE_TAG = 'latest'
-        KUBECONFIG_CREDENTIALS_ID = '64f03af0-1d4c-4bff-9cd6-bab0481dd2f9'
+        KUBECONFIG_CREDENTIALS_ID = 'bc64ae01-1aa6-4fc7-af5b-30c5982d471d'
         AWS_REGION = 'ap-northeast-2'
     }
 
