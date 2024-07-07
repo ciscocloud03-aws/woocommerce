@@ -88,8 +88,7 @@ spec:
                                     sh "docker tag ${ECR_REGISTRY}/${ECR_REPOSITORY}:${env.BUILD_NUMBER} ${ECR_REPOSITORY}:${IMAGE_TAG}"
 
                                     // 이미지 푸시
-                                    docker.withRegistry("${param.ecrrepository}", 'ecr:ap-northeast-2') {
-                                    docker.image('${ECR_REPOSITORY}:${IMAGE_TAG}').push()
+                                    sh "docker push ${ECR_REPOSITORY}:${IMAGE_TAG}"
 
                                 }
                             }
