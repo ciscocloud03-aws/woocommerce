@@ -55,6 +55,11 @@ spec:
       exec:
         command: [sh, -c, "ls -l /var/run/docker.sock"]
     args: ["dockerd", "-H", "tcp://0.0.0.0:2375", "-H",  "unix:///var/run/docker.sock"]
+    resources:
+      requests:
+        ephemeral-storage: "1Gi"
+      limits:
+        ephemeral-storage: "2Gi"
     securityContext:
       privileged: true
     volumeMounts:
