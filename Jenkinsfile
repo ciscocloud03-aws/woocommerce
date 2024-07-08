@@ -119,7 +119,7 @@ spec:
                          sh "cd ~"
                          sh "git init"
                          sh "git checkout main"
-                         sh "sed -i 's@image: 339712790288.dkr.ecr.ap-northeast-2.amazonaws.com/woocommerce:*@version: 339712790288.dkr.ecr.ap-northeast-2.amazonaws.com/woocommerce:${env.BUILD_NUMBER}@g' kube/woocommerce-deploy.yaml"
+                         sh "sed -i 's@image: *@version: 339712790288.dkr.ecr.ap-northeast-2.amazonaws.com/woocommerce:${env.BUILD_NUMBER}@g' kube/woocommerce-deploy.yaml"
                          sh "git add ."
                          sh "git config --global user.email ${params.gitlabName}"
                          sh "git config --global user.name ${params.gitlabEmail}"
