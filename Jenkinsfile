@@ -115,8 +115,9 @@ spec:
  //                    url: "${params.gitlabWebaddress}",
  //                    branch: 'main'
                  script {
-                     withCredentials([usernamePassword(credentialsId: 'github_pw', passwordVariable:"password", usernameVariable: "username")]) {
+                     withCredentials([usernamePassword(credentialsId: 'github_pw', variable: 'TOKEN')]) {
                          sh "~/workspace/woocommerce/kube"
+                         sh "set +x"
                          sh "sed -i 's@image: *@version: 339712790288.dkr.ecr.ap-northeast-2.amazonaws.com/woocommerce:${env.BUILD_NUMBER}@g' woocommerce-deploy.yaml"
                          sh 'chmod +x /var/jenkins_home/workspace/woocommerce/kube'
                          sh "git add ."
