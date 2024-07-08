@@ -1,14 +1,24 @@
 FROM wordpress:latest
 
+# 기본 사용자 설정
 USER root
 
+# 작업 디렉토리 설정
+WORKDIR /tmp
+
 # 모든 파일을 /tmp 디렉토리로 복사합니다.
-COPY . /tmp
+COPY --chown=www-data:www-data . .
 
-RUN cp -rf /tmp/wp-config.php /var/www/html/ \
-    && cp -rf /tmp/woocommerce /var/www/html/wp-content/plugins/ && chown -R www-data:www-data /var/www/html/wp-content/plugins/woocommerce /var/www/html/wp-config.php \
-    && chmod -R 755 /var/www/html/wp-content/plugins/woocommerce && ls -l /var/www/html/wp-content/plugins 
+# 필요한 파일만 /var/www/html 디렉토리로 복사하고 권한 설정
+RUN cp -rf wp-config.php /var/www/html/ \
+    && cp -rf woocommerce /var/www/html/wp-content/plugins/ \
+    && chown -R www-data:www-data /var/www/html/wp-content/plugins/woocommerce /var/www/html/wp-config.php \
+    && chmod -R 755 /var/www/html/wp-content/plugins/woocommerce \
+    && rm -rf /tmp/* \
+    && ls -l /var/www/html/wp-content/plugins
 
+# 기본 사용자로 전환
 USER www-data
 
+# 포트 노출
 EXPOSE 80
