@@ -111,8 +111,8 @@ spec:
   
          stage('Update 5ka Manifest Repository') {
              steps {
-                 git credentialsId: github_pw,
-                     url: "${params.gitlabWebaddress}",
+                 git credentialsId: 'GITLABCREDENTIAL',
+                     url: params.gitlabWebaddress,
                      branch: 'main'
                  script {
                      withCredentials([usernamePassword(credentialsId: KUBECONFIG_CREDENTIALS_ID, passwordVariable:"password", usernameVariable: "username")]) {
