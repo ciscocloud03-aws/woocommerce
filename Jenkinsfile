@@ -31,7 +31,7 @@ pipeline {
                 echo "gitlabWebaddress: ${params.gitlabWebaddress}"
                 echo "githelmaddress: ${params.githelmaddress}"
                 echo "githelmshortddress: ${params.githelmshortddress}"
-                echo "gitlabCredential: ${params.gitlabCredential}"
+                echo "gitlabCredential: ${GITLABCREDENTIAL}"
                 echo "ecrrepositoryCredential: ${params.ecrrepositoryCredential}"
                 echo "ecrrepository: ${params.ecrrepository}"
                 echo "namespace: ${params.namespace}"
@@ -111,8 +111,8 @@ spec:
   
          stage('Update 5ka Manifest Repository') {
              steps {
-                 git credentialsId: 'github_pw',
-                     url: params.gitlabWebaddress,
+                 git credentialsId: 'GITLABCREDENTIAL',
+                     url: "${params.gitlabWebaddress}",
                      branch: 'main'
                  script {
                      withCredentials([usernamePassword(credentialsId: KUBECONFIG_CREDENTIALS_ID, passwordVariable:"password", usernameVariable: "username")]) {
