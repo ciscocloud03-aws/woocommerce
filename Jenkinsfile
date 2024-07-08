@@ -115,7 +115,7 @@ spec:
                      url: "${params.githelmaddress}",
                      branch: 'main'
                  script {
-                     withCredentials([usernamePassword(credentialsId: "${KUBECONFIG_CREDENTIALS_ID}", passwordVariable:" ${params.gitlabCredential.password}", usernameVariable: "${params.gitlabCredential.id}")]) {
+                     withCredentials([usernamePassword(credentialsId: "${KUBECONFIG_CREDENTIALS_ID}", passwordVariable:"password", usernameVariable: "username")]) {
                          sh "cd ~"
                          sh "git init"
                          sh "git checkout main"
