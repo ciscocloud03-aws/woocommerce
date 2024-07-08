@@ -6,7 +6,7 @@ pipeline {
         ECR_REGISTRY = '339712790288.dkr.ecr.ap-northeast-2.amazonaws.com'
         ECR_REPOSITORY = 'woocommerce'
         IMAGE_TAG = 'latest'
-        KUBECONFIG_CREDENTIALS_ID = '66ccef8b-246f-4fbe-ac8c-9aed21662d27'
+        KUBECONFIG_CREDENTIALS_ID = credentials('66ccef8b-246f-4fbe-ac8c-9aed21662d27')
         AWS_REGION = 'ap-northeast-2'
     }
 
@@ -93,15 +93,15 @@ spec:
                                 }
                             }
 
-                            container('kubectl') {
-                                script {
-                                    withCredentials([file(credentialsId: "${KUBECONFIG_CREDENTIALS_ID}", variable: 'KUBECONFIG')]) {
-                                        // Kubernetes 마니페스트 적용
-                                        sh 'kubectl apply -f kube/woocommerce-deploy.yaml -f kube/woocommerce-service.yaml'
+                        //     container('kubectl') {
+                        //         script {
+                        //             withCredentials([file(credentialsId: "${KUBECONFIG_CREDENTIALS_ID}", variable: 'KUBECONFIG')]) {
+                        //                 // Kubernetes 마니페스트 적용
+                        //                 sh 'kubectl apply -f kube/woocommerce-deploy.yaml -f kube/woocommerce-service.yaml'
                                     
-                                }
-                            }
-                        }
+                        //         }
+                        //     }
+                        // }
                     }
                 }
             }
