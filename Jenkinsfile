@@ -111,7 +111,7 @@ spec:
   
          stage('Update 5ka Manifest Repository') {
              steps {
-                 git credentialsId: 'GITLABCREDENTIAL',
+                 git credentialsId: 'github_pw',
                      url: params.gitlabWebaddress,
                      branch: 'main'
                  script {
