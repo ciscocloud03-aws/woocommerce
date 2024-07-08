@@ -111,9 +111,9 @@ spec:
   
          stage('Update 5ka Manifest Repository') {
              steps {
-                 git credentialsId: 'github_pw',
-                     url: "${params.gitlabWebaddress}",
-                     branch: 'main'
+ //                git credentialsId: 'github_pw',
+ //                    url: "${params.gitlabWebaddress}",
+ //                    branch: 'main'
                  script {
                      withCredentials([usernamePassword(credentialsId: KUBECONFIG_CREDENTIALS_ID, passwordVariable:"password", usernameVariable: "username")]) {
                          sh "~/workspace/woocommerce/kube"
