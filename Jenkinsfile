@@ -124,7 +124,7 @@ spec:
                          sh "git config --global user.name $username"
                          sh "git remote set-url origin https://${username}:${password}@github.com/ciscocloud03-aws/woocommerce.git"
                          sh "git commit -m '[UPDATE] 5ka ${GIT_COMMIT} image versioning'"
-                         sh "git push -f origin main"
+                         sh "git push -f origin main" 
                      }
                  }
              }
