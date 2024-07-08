@@ -117,7 +117,7 @@ spec:
                  script {
                      withCredentials([usernamePassword(credentialsId: 'github_pw', passwordVariable:"password", usernameVariable: "username")]) {
                          sh "chmod +x ~/workspace/woocommerce/kube /var/jenkins_home/workspace/woocommerce/kube"
-                         sh "sed -i 's@\<image: *$@image: 339712790288.dkr.ecr.ap-northeast-2.amazonaws.com/woocommerce:${env.BUILD_NUMBER}@g' kube/woocommerce-deploy.yaml"
+                         sh "sed -i 's@image: *$@image: 339712790288.dkr.ecr.ap-northeast-2.amazonaws.com/woocommerce:${env.BUILD_NUMBER}@g' kube/woocommerce-deploy.yaml"
                          sh "cat kube/woocommerce-deploy.yaml"
                          sh "git add kube/woocommerce-deploy.yaml"
                          sh "git config --global user.email ${params.gitlabName}"
