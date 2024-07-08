@@ -8,13 +8,13 @@ pipeline {
         IMAGE_TAG = 'latest'
         KUBECONFIG_CREDENTIALS_ID = credentials('66ccef8b-246f-4fbe-ac8c-9aed21662d27')
         AWS_REGION = 'ap-northeast-2'
+        GITLABCREDENTIAL = credentials('github_pw')
     }
 
     parameters {
         string(name: 'gitlabName', defaultValue: 'smth-hyj')
         string(name: 'gitlabEmail', defaultValue: 'smth.hyj@gmail.com')
         string(name: 'gitlabWebaddress', defaultValue: 'https://github.com/ciscocloud03-aws/woocommerce.git')
-        string(name: 'gitlabCredential', defaultValue: 'github_pw', description: '')
         string(name: 'githelmaddress', defaultValue: '', description: 'git helm repository')
         string(name: 'githelmshortddress', defaultValue: '', description: 'git helm repository')    
         string(name: 'ecrrepositoryCredential', defaultValue: 'woocommerce')
@@ -111,8 +111,8 @@ spec:
   
          stage('Update 5ka Manifest Repository') {
              steps {
-                 git credentialsId: "${params.gitlabCredential}",
-                     url: "${params.githelmaddress}",
+                 git credentialsId: "${GITLABCREDENTIAL}",
+                     url: "${params.gitlabWebaddress}",
                      branch: 'main'
                  script {
                      withCredentials([usernamePassword(credentialsId: "${KUBECONFIG_CREDENTIALS_ID}", passwordVariable:"password", usernameVariable: "username")]) {
