@@ -2,11 +2,11 @@ pipeline {
     agent any
 
     environment {
-        AWS_CREDENTIALS = credentials('339712790288')
+        AWS_CREDENTIALS = credentials('aws')
         ECR_REGISTRY = '339712790288.dkr.ecr.ap-northeast-2.amazonaws.com'
         ECR_REPOSITORY = 'woocommerce'
         IMAGE_TAG = 'latest'
-        KUBECONFIG_CREDENTIALS_ID = 'bc64ae01-1aa6-4fc7-af5b-30c5982d471d'
+        KUBECONFIG_CREDENTIALS_ID = '66ccef8b-246f-4fbe-ac8c-9aed21662d27'
         AWS_REGION = 'ap-northeast-2'
     }
 
@@ -97,7 +97,7 @@ spec:
                                 script {
                                     withCredentials([file(credentialsId: "${KUBECONFIG_CREDENTIALS_ID}", variable: 'KUBECONFIG')]) {
                                         // Kubernetes 마니페스트 적용
-                                        sh 'kubectl apply -f woocommerce-deploy.yaml -f woocommerce-service.yaml'
+                                        sh 'kubectl apply -f kube/woocommerce-deploy.yaml -f kube/woocommerce-service.yaml'
                                     
                                 }
                             }
@@ -116,9 +116,10 @@ spec:
                      branch: 'main'
                  script {
                      withCredentials([usernamePassword(credentialsId: "${KUBECONFIG_CREDENTIALS_ID}", passwordVariable:" ${params.gitlabCredential.password}", usernameVariable: "${params.gitlabCredential.id}")]) {
+                         sh "cd ~"
                          sh "git init"
                          sh "git checkout main"
-                         sh "sed -i 's@image: 339712790288.dkr.ecr.ap-northeast-2.amazonaws.com/woocommerce:*@version: 339712790288.dkr.ecr.ap-northeast-2.amazonaws.com/woocommerce:${env.BUILD_NUMBER}@g' woocommerce-deploy.yaml"
+                         sh "sed -i 's@image: 339712790288.dkr.ecr.ap-northeast-2.amazonaws.com/woocommerce:*@version: 339712790288.dkr.ecr.ap-northeast-2.amazonaws.com/woocommerce:${env.BUILD_NUMBER}@g' kube/woocommerce-deploy.yaml"
                          sh "git add ."
                          sh "git config --global user.email ${params.gitlabName}"
                          sh "git config --global user.name ${params.gitlabEmail}"
