@@ -92,16 +92,6 @@ spec:
 
                                 }
                             }
-
-                        //     container('kubectl') {
-                        //         script {
-                        //             withCredentials([file(credentialsId: "${KUBECONFIG_CREDENTIALS_ID}", variable: 'KUBECONFIG')]) {
-                        //                 // Kubernetes 마니페스트 적용
-                        //                 sh 'kubectl apply -f kube/woocommerce-deploy.yaml -f kube/woocommerce-service.yaml'
-                                    
-                        //         }
-                        //     }
-                        // }
                     }
                 }
             }
@@ -111,15 +101,12 @@ spec:
   
          stage('Update 5ka Manifest Repository') {
              steps {
- //                git credentialsId: 'github_pw',
- //                    url: "${params.gitlabWebaddress}",
- //                    branch: 'main'
                  script {
                      withCredentials([usernamePassword(credentialsId: 'github_pw', passwordVariable:"password", usernameVariable: "username")]) {
-                         sh "chmod +x ~/workspace/woocommerce/kube /var/jenkins_home/workspace/woocommerce/kube"
-                         sh "sed -i 's@image: .*@image: 339712790288.dkr.ecr.ap-northeast-2.amazonaws.com/woocommerce:${env.BUILD_NUMBER}@g' kube/woocommerce-deploy.yaml"
-                         sh "cat kube/woocommerce-deploy.yaml"
-                         sh "git add kube/woocommerce-deploy.yaml"
+                         sh "chmod +x ~/workspace/woocommerce /var/jenkins_home/workspace/woocommerce"
+                         sh "sed -i 's@image: .*@image: 339712790288.dkr.ecr.ap-northeast-2.amazonaws.com/woocommerce:${env.BUILD_NUMBER}@g' woocommerce-deploy.yaml"
+                         sh "cat woocommerce-deploy.yaml"
+                         sh "git add woocommerce-deploy.yaml"
                          sh "git config --global user.email ${params.gitlabName}"
                          sh "git config --global user.name $username"
                          sh "git remote set-url origin https://${username}:${password}@github.com/ciscocloud03-aws/woocommerce.git"
