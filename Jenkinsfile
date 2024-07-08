@@ -122,7 +122,7 @@ spec:
                          sh 'chmod +x /var/jenkins_home/workspace/woocommerce/kube'
                          sh "git add ."
                          sh "git config --global user.email ${params.gitlabName}"
-                         sh "git config --global user.name ${params.gitlabEmail}"
+                         sh "git config --global user.name $username"
                          sh "git commit -m '[UPDATE] 5ka ${GIT_COMMIT} image versioning'"
                          sh "git push -f origin main"
                      }
