@@ -117,7 +117,7 @@ spec:
                  script {
                      withCredentials([usernamePassword(credentialsId: "${KUBECONFIG_CREDENTIALS_ID}", passwordVariable:"password", usernameVariable: "username")]) {
                          sh "sed -i 's@image: *@version: 339712790288.dkr.ecr.ap-northeast-2.amazonaws.com/woocommerce:${env.BUILD_NUMBER}@g' kube/woocommerce-deploy.yaml"
-                         sh "git add "
+                         sh "git add -A"
                          sh "git config --global user.email ${params.gitlabName}"
                          sh "git config --global user.name ${params.gitlabEmail}"
                          sh "git commit -m '[UPDATE] 5ka ${GIT_COMMIT} image versioning'"
