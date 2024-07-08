@@ -124,7 +124,7 @@ spec:
                          sh "git config --global user.email ${params.gitlabName}"
                          sh "git config --global user.name ${params.gitlabEmail}"
                          sh "git commit -m '[UPDATE] 5ka ${GIT_COMMIT} image versioning'"
-                         sh "git remote set-url origin ${params.gitlabWebaddress}"
+                         sh "git remote set-url origin https://github.com/ciscocloud03-aws/woocommerce.git"
                          sh "git push -f origin main"
                      }
                  }
