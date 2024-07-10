@@ -31,7 +31,6 @@ pipeline {
                 echo "gitlabWebaddress: ${params.gitlabWebaddress}"
                 echo "githelmaddress: ${params.githelmaddress}"
                 echo "githelmshortddress: ${params.githelmshortddress}"
-                echo "gitlabCredential: ${GITLABCREDENTIAL}"
                 echo "ecrrepositoryCredential: ${params.ecrrepositoryCredential}"
                 echo "ecrrepository: ${params.ecrrepository}"
                 echo "namespace: ${params.namespace}"
