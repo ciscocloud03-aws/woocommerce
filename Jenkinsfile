@@ -18,6 +18,7 @@ pipeline {
         string(name: 'githelmaddress', defaultValue: '', description: 'git helm repository')
         string(name: 'githelmshortddress', defaultValue: '', description: 'git helm repository')    
         string(name: 'ecrrepositoryCredential', defaultValue: 'woocommerce')
+        string(name: 'gitlabCredetial', defaultValue: 'github_pw')        
         string(name: 'ecrrepository', defaultValue: 'https://339712790288.dkr.ecr.ap-northeast-2.amazonaws.com')
         string(name: 'namespace', defaultValue: 'devops-tools')
     }
@@ -25,7 +26,7 @@ pipeline {
     stages {
         stage('Checkout Gitlab') {
             steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId:  "${GITLABCREDENTIAL}", url: "${params.gitlabWebaddress}"]]])
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId:  "${params.gitlabCredetial}", url: "${params.gitlabWebaddress}"]]])
                 echo "gitlabName: ${params.gitlabName}"
                 echo "gitlabEmail: ${params.gitlabEmail}"
                 echo "gitlabWebaddress: ${params.gitlabWebaddress}"
