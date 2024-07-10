@@ -23,20 +23,6 @@ pipeline {
     }
 
     stages {
-        stage('Checkout Gitlab') {
-            steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId:  "${params.gitlabCredential}", url: "${params.gitlabWebaddress}"]]])
-                echo "gitlabName: ${params.gitlabName}"
-                echo "gitlabEmail: ${params.gitlabEmail}"
-                echo "gitlabWebaddress: ${params.gitlabWebaddress}"
-                echo "githelmaddress: ${params.githelmaddress}"
-                echo "githelmshortddress: ${params.githelmshortddress}"
-                echo "ecrrepositoryCredential: ${params.ecrrepositoryCredential}"
-                echo "ecrrepository: ${params.ecrrepository}"
-                echo "namespace: ${params.namespace}"
-            }
-        }
-
         stage('Docker Pod Deploy') {
             steps {
                 podTemplate(yaml: '''
