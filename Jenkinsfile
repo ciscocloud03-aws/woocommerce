@@ -2,7 +2,6 @@ pipeline {
     agent any
 
     environment {
-        AWS_CREDENTIALS = credentials('aws')
         ECR_REGISTRY = '339712790288.dkr.ecr.ap-northeast-2.amazonaws.com'
         ECR_REPOSITORY = 'woocommerce'
         IMAGE_TAG = 'latest'
