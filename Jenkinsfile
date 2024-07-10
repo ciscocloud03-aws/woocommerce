@@ -2,12 +2,14 @@ pipeline {
     agent any
 
     environment {
+        AWS_CREDENTIALS = credentials('aws')
         ECR_REGISTRY = '339712790288.dkr.ecr.ap-northeast-2.amazonaws.com'
         ECR_REPOSITORY = 'woocommerce'
         IMAGE_TAG = 'latest'
         KUBECONFIG_CREDENTIALS_ID = credentials('e3b6f7c0-deef-4f00-99c0-d4c17a991f0f')
         AWS_REGION = 'ap-northeast-2'
         GITLABCREDENTIAL = credentials('github_pw')
+        GITLABCREDENTIAL_PSW = credentials('github')
     }
 
     parameters {
