@@ -56,10 +56,7 @@ spec:
       exec:
         command: [sh, -c, "ls -l /var/run/docker.sock"]
     args: ["dockerd", "-H", "tcp://0.0.0.0:2375", "-H",  "unix:///var/run/docker.sock"]
-    command
-    - sh
-    - -c
-    - 'apk add --no-cache iptables'
+    command: ["sh", "-c", "apk add --no-cache iptables"]
     securityContext:
       privileged: true
     volumeMounts:
