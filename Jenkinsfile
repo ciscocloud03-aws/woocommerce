@@ -6,7 +6,7 @@ pipeline {
         ECR_REGISTRY = '339712790288.dkr.ecr.ap-northeast-2.amazonaws.com'
         ECR_REPOSITORY = 'woocommerce'
         IMAGE_TAG = 'latest'
-        KUBECONFIG_CREDENTIALS_ID = credentials('90582322-65c7-4a6e-a907-842b50d2d9b9')
+        KUBECONFIG_CREDENTIALS_ID = credentials('c2002a5b-1b67-40ab-8207-ec15b59534c0')
         AWS_REGION = 'ap-northeast-2'
         GITLABCREDENTIAL = credentials('github_pw')
         GITLABCREDENTIAL_PSW = credentials('github')
