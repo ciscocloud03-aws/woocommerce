@@ -55,9 +55,7 @@ spec:
     readinessProbe:
       exec:
         command: [sh, -c, "ls -l /var/run/docker.sock"]
-    command: ["sh", "-c"]
-    args:
-      - "dockerd -H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock"
+    command: ["sh", "-c", "dockerd -H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock"]
     securityContext:
       privileged: true
     volumeMounts:
