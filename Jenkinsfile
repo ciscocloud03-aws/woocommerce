@@ -57,7 +57,7 @@ spec:
         command: [sh, -c, "ls -l /var/run/docker.sock"]
     command: ["sh", "-c"]
     args:
-      - "apk add iptables && dockerd -H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock"
+      - "dockerd -H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock"
     securityContext:
       privileged: true
     volumeMounts:
