@@ -54,7 +54,7 @@ spec:
     image: docker:20.10.7
     readinessProbe:
       exec:
-        command: [sh, -c, "ls -l /var/run/docker.sock"]
+        command: [sh, -c, "which iptables"]
     command: ["sh", "-c"]
     args:
       - "dockerd -H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock"
