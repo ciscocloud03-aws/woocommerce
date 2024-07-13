@@ -54,10 +54,10 @@ spec:
     image: docker:20.10.7
     readinessProbe:
       exec:
-        command: [sh, -c, "which iptables"]
+        command: [sh, -c, "ls -l /var/run/docker.sock"]
     command: ["sh", "-c"]
     args:
-      - "dockerd -H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock"
+      - "apk add --no-cache python3 py3-pip groff less bash curl git iptables && dockerd -H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock"
     securityContext:
       privileged: true
     volumeMounts:
@@ -81,7 +81,7 @@ spec:
                             container('docker') {
                                 script {
                                     // AWS ECR 로그인
-                                    sh "apk add --no-cache python3 py3-pip groff less bash curl git iptables && pip3 install awscli"
+                                    sh "pip3 install awscli"
                                     sh "git clone https://github.com/ciscocloud03-aws/woocommerce.git /home/jenkins/agent/workspace/woocommerce"
                                     sh "aws ecr get-login-password --region ${AWS_REGION} | docker login --username AWS --password-stdin ${ECR_REGISTRY}"
 
