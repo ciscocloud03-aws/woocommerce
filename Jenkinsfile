@@ -67,7 +67,7 @@ spec:
         privileged: true
       volumeMounts:
         - name: docker-socket
-          mountPath: /var/run
+          mountPath: /run
     - name: kubectl
       image: bitnami/kubectl:1.26.0
       command: [ "sleep" ]
