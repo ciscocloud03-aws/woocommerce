@@ -51,7 +51,7 @@ spec:
       emptyDir: {}
   containers:
     - name: docker
-      image: docker:20.10.7-dind
+      image: docker:20.10.7
       readinessProbe:
         exec:
           command: [ "sh", "-c", "ls -l /var/run/docker.sock" ]
