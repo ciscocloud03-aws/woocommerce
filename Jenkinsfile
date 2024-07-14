@@ -54,7 +54,7 @@ spec:
       image: docker:27.0.3
       readinessProbe:
         exec:
-          command: [ "sh", "-c", "ls -l /var/run/docker.sock" ]
+          command: [ "sh", "-c", "ls -l /run/docker.sock" ]
         initialDelaySeconds: 30
         periodSeconds: 10
         failureThreshold: 10
@@ -62,7 +62,7 @@ spec:
       args:
         - |
           apk add --no-cache python3 py3-pip groff less bash curl git iptables && \
-          dockerd -H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock
+          dockerd -H tcp://0.0.0.0:2375 -H unix:///run/docker.sock
       securityContext:
         privileged: true
       volumeMounts:
