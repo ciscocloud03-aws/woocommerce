@@ -39,37 +39,38 @@ pipeline {
             }
         }
 
-        stage('Docker Pod Deploy') {
-            steps {
-                podTemplate(yaml: '''
+            stage('Docker Pod Deploy') {
+                steps {
+                    podTemplate(yaml: '''
 apiVersion: v1
 kind: Pod
 spec:
   serviceAccountName: jenkins-admin
   volumes:
-  - name: docker-socket
-    emptyDir: {}
-  containers:
-  - name: docker
-    image: docker:27.0.3
-    readinessProbe:
-      exec:
-        command: [sh, -c, "ls -l /var/run/docker.sock"]
-    command: ["sh", "-c"]
-    args:
-      - "apk add --no-cache python3 py3-pip groff less bash curl git iptables && dockerd -H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock"
-    securityContext:
-      privileged: true
-    volumeMounts:
     - name: docker-socket
-      mountPath: /var/run
-  - name: kubectl
-    image: bitnami/kubectl:1.26.0
-    command: 
-    - sleep
-    args: 
-    - 99d
-                ''') {
+      emptyDir: {}
+  containers:
+    - name: docker
+      image: docker:20.10.7-dind
+      readinessProbe:
+        exec:
+          command: [ "sh", "-c", "ls -l /var/run/docker.sock" ]
+      command: [ "sh", "-c" ]
+      args:
+        - |
+          apk add --no-cache python3 py3-pip groff less bash curl git iptables && \
+          dockerd --storage-driver=vfs -H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock
+      securityContext:
+        privileged: true
+      volumeMounts:
+        - name: docker-socket
+          mountPath: /var/run
+    - name: kubectl
+      image: bitnami/kubectl:1.26.0
+      command: [ "sleep" ]
+      args: [ "99d" ]
+        ''') {
+            // Your steps here
                     node(POD_LABEL) {
                             container('docker') {
                                 script {
@@ -127,4 +128,3 @@ spec:
         }
     }
 }
-
