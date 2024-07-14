@@ -59,7 +59,7 @@ spec:
       args:
         - |
           apk add --no-cache python3 py3-pip groff less bash curl git iptables && \
-          dockerd --storage-driver=vfs -H tcp://0.0.0.0:2376 -H unix:///var/run/docker.sock
+          dockerd -H tcp://0.0.0.0:2375
       securityContext:
         privileged: true
       volumeMounts:
