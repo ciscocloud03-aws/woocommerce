@@ -63,13 +63,6 @@ spec:
     volumeMounts:
     - name: docker-socket
       mountPath: /var/run
-  - name: docker-daemon
-    image: docker:20.10.7-dind
-    securityContext:
-      privileged: true
-    volumeMounts:
-    - name: docker-socket
-      mountPath: /var/run
   - name: kubectl
     image: bitnami/kubectl:1.26.0
     command: 
