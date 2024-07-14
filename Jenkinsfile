@@ -55,6 +55,9 @@ spec:
       readinessProbe:
         exec:
           command: [ "sh", "-c", "ls -l /var/run/docker.sock" ]
+        initialDelaySeconds: 30
+        periodSeconds: 10
+        failureThreshold: 10
       command: [ "sh", "-c" ]
       args:
         - |
