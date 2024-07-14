@@ -61,7 +61,7 @@ spec:
       command: [ "sh", "-c" ]
       args:
         - |
-          chmod 666 /var/run/docker.sock \
+          chmod 666 /var/run/docker.sock && \
           apk add --no-cache python3 py3-pip groff less bash curl git iptables && \
           dockerd -H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock
       securityContext:
