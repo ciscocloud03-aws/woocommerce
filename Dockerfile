@@ -11,8 +11,9 @@ COPY --chown=www-data:www-data . .
 
 # 필요한 파일만 /var/www/html 디렉토리로 복사하고 권한 설정
 RUN cp -rf wp-config.php /var/www/html/ \
+    && cp -rf .htaccess /var/www/html \
     && cp -rf woocommerce /var/www/html/wp-content/plugins/ \
-    && chown -R www-data:www-data /var/www/html/wp-content/plugins/woocommerce /var/www/html/wp-config.php \
+    && chown -R www-data:www-data /var/www/html/wp-content/plugins/woocommerce /var/www/html/wp-config.php /var/www/html/.htaccess \
     && chmod -R 755 /var/www/html/wp-content/plugins/woocommerce \
     && rm -rf /tmp/* \
     && ls -l /var/www/html/wp-content/plugins

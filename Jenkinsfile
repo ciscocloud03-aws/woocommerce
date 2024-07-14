@@ -51,7 +51,10 @@ spec:
     emptyDir: {}
   containers:
   - name: docker
-    image: docker:20.10.7-dind
+    image: docker:20.10.7
+    readinessProbe:
+      exec:
+        command: [sh, -c, "ls -l /var/run/docker.sock"]
     command: ["sh", "-c"]
     args:
       - "apk add --no-cache python3 py3-pip groff less bash curl git iptables && dockerd -H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock"

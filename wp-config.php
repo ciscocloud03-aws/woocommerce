@@ -86,7 +86,9 @@ define('WP_DEBUG_DISPLAY', false);
 @ini_set('error_log', '/var/log/woocommerce/php-errors.log');
 /* Add any custom values between this line and the "stop editing" line. */
 
-
+define('FORCE_SSL_ADMIN', true);
+if ((isset($_SERVER['HTTP_X_FORWARDED_PROTO'])) && (strpos($_SERVER['HTTP_X_FORWARDED_PROTO'], 'https') !== false))
+$_SERVER['HTTPS']='on';
 
 /* That's all, stop editing! Happy publishing. */
 
@@ -97,3 +99,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /** Sets up WordPress vars and included files. */
 require_once ABSPATH . 'wp-settings.php';
+
