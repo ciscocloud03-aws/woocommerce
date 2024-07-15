@@ -7,13 +7,12 @@ USER root
 WORKDIR /tmp
 
 # 모든 파일을 /tmp 디렉토리로 복사합니다.
-COPY --chown=www-data:www-data . .
+COPY --chown=www-data:www-data . /tmp
 
 # 필요한 파일만 /var/www/html 디렉토리로 복사하고 권한 설정
-RUN cp -rf wp-config.php /var/www/html/ \
-    && cp -rf .htaccess /var/www/html/ \
-    && cp -rf woocommerce /var/www/html/wp-content/plugins/ \
-    && chown -R www-data:www-data /var/www/html/wp-content/plugins/woocommerce /var/www/html/wp-config.php /var/www/html/.htaccess \
+RUN cp -rfp wp-config.php /var/www/html/ \
+    && cp -rfp .htaccess /var/www/html/ \
+    && cp -rfp woocommerce /var/www/html/wp-content/plugins/ \
     && chmod -R 755 /var/www/html/wp-content/plugins/woocommerce /var/www/html/*\
     && rm -rf /tmp/* \
     && ls -l /var/www/html/wp-content/plugins
