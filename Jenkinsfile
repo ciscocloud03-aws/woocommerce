@@ -60,9 +60,7 @@ spec:
         failureThreshold: 10
       command: [ "sh", "-c" ]
       args:
-        - |
-          apk add --no-cache python3 py3-pip && \
-          dockerd -H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock
+        - dockerd -H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock
       securityContext:
         privileged: true
       volumeMounts:
@@ -77,7 +75,9 @@ spec:
                             container('docker') {
                                 script {
                                     // AWS ECR 로그인
-                                    sh "apk add --no-cache groff less bash curl git iptables && pip3 install awscli && deactivate"
+                                    sh "apk add --no-cache groff less bash curl git iptables python3 py3-pip py3-venv && \
+                                    python3 -m venv /path/to/venv && . /path/to/venv/bin/activate && \
+                                    pip install awscli && deactivate"
                                     sh "git clone https://github.com/ciscocloud03-aws/woocommerce.git /home/jenkins/agent/woocommerce"
                                     sh "aws ecr get-login-password --region ${AWS_REGION} | docker login --username AWS --password-stdin ${ECR_REGISTRY}"
 
