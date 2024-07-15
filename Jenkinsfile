@@ -49,13 +49,13 @@ spec:
   volumes:
     - name: docker-socket
       hostPath:
-        path: /run
+        path: /var/run
   containers:
     - name: docker
       image: docker:20.10.7-dind
       readinessProbe:
         exec:
-          command: [ "sh", "-c", "ls -l /run/docker.sock" ]
+          command: [ "sh", "-c", "ls -l /var/run/docker.sock" ]
         initialDelaySeconds: 30
         periodSeconds: 10
         failureThreshold: 10
@@ -63,12 +63,12 @@ spec:
       args:
         - |
           apk add --no-cache python3 py3-pip groff less bash curl git iptables && \
-          dockerd --storage-driver=vfs -H tcp://0.0.0.0:2375 -H unix:///run/docker.sock
+          dockerd --storage-driver=vfs -H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock
       securityContext:
         privileged: true
       volumeMounts:
         - name: docker-socket
-          mountPath: /run
+          mountPath: /var/run
     - name: kubectl
       image: bitnami/kubectl:1.26.0
       command: [ "sleep" ]
