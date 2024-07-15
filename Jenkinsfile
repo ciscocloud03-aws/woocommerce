@@ -78,16 +78,16 @@ spec:
                                     sh "apk add --no-cache groff less bash curl git iptables python3 py3-pip && \
                                     python3 -m venv .venv && . .venv/bin/activate && \
                                     pip install awscli --upgrade && which aws"
-                                    sh "git clone https://github.com/ciscocloud03-aws/woocommerce.git /home/jenkins/agent/woocommerce"
+                                    sh "git clone https://github.com/ciscocloud03-aws/woocommerce.git /home/jenkins/agent/ && deactivate "
                                     sh "/home/jenkins/agent/workspace/woocommerce/.venv/bin/aws ecr get-login-password --region ${AWS_REGION} | docker login --username AWS --password-stdin ${ECR_REGISTRY}"
 
                                     // Docker 이미지 빌드 및 태그
-                                    sh "docker build --no-cache -t ${ECR_REGISTRY}/${ECR_REPOSITORY}:${env.BUILD_NUMBER} ."
+                                    sh "cd /home/jenkins/agent/woocommerce && docker build --no-cache -t ${ECR_REGISTRY}/${ECR_REPOSITORY}:${env.BUILD_NUMBER} ."
                                     sh "docker images"
                                     sh "docker tag ${ECR_REGISTRY}/${ECR_REPOSITORY}:${env.BUILD_NUMBER} ${ECR_REPOSITORY}:${IMAGE_TAG}"
 
                                     // 이미지 푸시
-                                    sh "docker push ${ECR_REGISTRY}/${ECR_REPOSITORY}:${env.BUILD_NUMBER} && deactivate"
+                                    sh "docker push ${ECR_REGISTRY}/${ECR_REPOSITORY}:${env.BUILD_NUMBER} "
 
                                 }
                             }
