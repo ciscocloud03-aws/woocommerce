@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: woocommerce
-  namespace: woo
+  namespace: woocommerce
 spec:
   replicas: 3
   selector:
@@ -27,7 +27,7 @@ spec:
                 topologyKey: "kubernetes.io/hostname"      
       containers:
         - name: woocommerce
-          image: smthhyj/woocommerce:4.0 
+          image: 339712790288.dkr.ecr.ap-northeast-2.amazonaws.com/woocommerce:102
           ports:
             - containerPort: 80
           volumeMounts:
