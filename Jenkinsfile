@@ -48,8 +48,7 @@ spec:
   serviceAccountName: jenkins-admin
   volumes:
     - name: docker-socket
-      hostPath:
-        path: /var/run/docker.sock
+      emptyDir: {}
   containers:
     - name: docker
       image: docker:27.0.3
@@ -68,8 +67,7 @@ spec:
         privileged: true
       volumeMounts:
         - name: docker-socket
-          mountPath: /var/run/docker.sock
-          subPath: docker.sock
+          mountPath: /var/run
     - name: kubectl
       image: bitnami/kubectl:1.26.0
       command: [ "sleep" ]
