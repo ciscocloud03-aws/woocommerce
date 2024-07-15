@@ -105,7 +105,7 @@ spec:
                      branch: 'main'
                  script {
                      withCredentials([usernamePassword(credentialsId: 'github_pw', passwordVariable:"password", usernameVariable: "username")]) {
-                         sh "git config --global user.email ${params.gitlabName}"
+                         sh "git config --global user.email smth.hyj@gmail.com"
                          sh "git config --global user.name $username"
                          sh "git clone https://github.com/ciscocloud03-aws/woo-manifest.git"
                          sh "chmod +x ~/workspace/woo-manifest"
