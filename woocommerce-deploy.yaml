@@ -4,7 +4,7 @@ metadata:
   name: woocommerce
   namespace: woo
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: woocommerce
@@ -15,7 +15,7 @@ spec:
     spec:
       affinity:
         podAntiAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
+          preferredDuringSchedulingIgnoredDuringExecution:
             - weight: 100
               podAffinityTerm:
                 labelSelector:
@@ -24,10 +24,10 @@ spec:
                       operator: In
                       values:
                         - woocommerce
-                topologyKey: "kubernetes.io/hostname"
+                topologyKey: "kubernetes.io/hostname"      
       containers:
         - name: woocommerce
-          image: 339712790288.dkr.ecr.ap-northeast-2.amazonaws.com/woocommerce:102
+          image: smthhyj/woocommerce:4.0 
           ports:
             - containerPort: 80
           volumeMounts:
