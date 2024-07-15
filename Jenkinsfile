@@ -105,7 +105,7 @@ spec:
                      branch: 'main'
                  script {
                      withCredentials([usernamePassword(credentialsId: 'github_pw', passwordVariable:"password", usernameVariable: "username")]) {
-                         sh "chmod +x ~/workspace/woocommerce /jenkins_home/workspace/agent/woocommerce"
+                         sh "chmod +x ~/workspace/woocommerce"
                          sh "sed -i 's@image: .*@image: 339712790288.dkr.ecr.ap-northeast-2.amazonaws.com/woocommerce:${env.BUILD_NUMBER}@g' woocommerce-deploy.yaml"
                          sh "cat woocommerce-deploy.yaml"
                          sh "git add woocommerce-deploy.yaml"
