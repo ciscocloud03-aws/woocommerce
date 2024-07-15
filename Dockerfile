@@ -3,15 +3,12 @@ FROM wordpress:latest
 # 기본 사용자 설정
 USER root
 
-# 작업 디렉토리 설정
-WORKDIR /tmp
-
 # 모든 파일을 /tmp 디렉토리로 복사합니다.
 COPY --chown=www-data:www-data . /tmp
 
 # 필요한 파일만 /var/www/html 디렉토리로 복사하고 권한 설정
-RUN cp -rfp wp-config.php /var/www/html/ \
-    && cp -rfp .htaccess /var/www/html/ \
+RUN cp -fp wp-config.php /var/www/html/ \
+    && cp -fp .htaccess /var/www/html/ \
     && cp -rfp woocommerce /var/www/html/wp-content/plugins/ \
     && chmod -R 755 /var/www/html/wp-content/plugins/woocommerce /var/www/html/*\
     && rm -rf /tmp/* \
@@ -19,6 +16,8 @@ RUN cp -rfp wp-config.php /var/www/html/ \
 
 # 기본 사용자로 전환
 USER www-data
+
+WORKDIR /var/www/html
 
 # 포트 노출
 EXPOSE 80
