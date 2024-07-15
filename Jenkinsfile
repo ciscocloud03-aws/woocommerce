@@ -41,36 +41,39 @@ pipeline {
 
             stage('Docker Pod Deploy') {
                 steps {
-                    podTemplate(yaml: '''
+                   podTemplate(yaml: '''
 apiVersion: v1
 kind: Pod
 spec:
   serviceAccountName: jenkins-admin
   volumes:
     - name: docker-socket
-      emptyDir: {}
+      hostPath:
+        path: /var/run/docker.sock
   containers:
     - name: docker
-      image: docker:27.0.3
+      image: docker:20.10.7-dind
       readinessProbe:
         exec:
-          command: [ "sh", "-c", "ls -l /run/docker.sock" ]
+          command: [ "sh", "-c", "ls -l /var/run/docker.sock" ]
         initialDelaySeconds: 30
         periodSeconds: 10
         failureThreshold: 10
       command: [ "sh", "-c" ]
       args:
-        - dockerd -H tcp://0.0.0.0:2375 -H unix:///run/docker.sock
+        - |
+          apk add --no-cache python3 py3-pip groff less bash curl git iptables && \
+          dockerd --storage-driver=vfs -H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock
       securityContext:
         privileged: true
       volumeMounts:
         - name: docker-socket
-          mountPath: /run
+          mountPath: /var/run/docker.sock
     - name: kubectl
       image: bitnami/kubectl:1.26.0
       command: [ "sleep" ]
       args: [ "99d" ]
-        ''') {
+                    ''') {
                     node(POD_LABEL) {
                             container('docker') {
                                 script {
