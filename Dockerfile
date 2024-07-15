@@ -10,7 +10,9 @@ COPY --chown=www-data:www-data . /tmp
 RUN cp -fp /tmp/wp-config.php /var/www/html/ \
     && cp -fp /tmp/.htaccess /var/www/html/ \
     && cp -rfp /tmp/woocommerce /var/www/html/wp-content/plugins/ \
-    && chmod -R 755 /var/www/html/wp-content/plugins/woocommerce /var/www/html/*\
+    && chmod -R 755 /var/www/html/wp-content/plugins/woocommerce \
+    && chmod 644 /var/www/html/.htaccess \
+    && chmod 640 /var/www/html/wp-config.php \
     && rm -rf /tmp \
     && ls -l /var/www/html/wp-content/plugins
 
