@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: woocommerce
+  namespace: woo
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: woocommerce
+  template:
+    metadata:
+      labels:
+        app: woocommerce
+    spec:
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - weight: 100
+              podAffinityTerm:
+                labelSelector:
+                  matchExpressions:
+                    - key: app
+                      operator: In
+                      values:
+                        - woocommerce
+                topologyKey: "kubernetes.io/hostname"      
+      containers:
+        - name: woocommerce
+          image: 339712790288.dkr.ecr.ap-northeast-2.amazonaws.com/woocommerce:122
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: woocommerce-logs
+              mountPath: /var/log/woocommerce
+      volumes:
+        - name: woocommerce-logs
+          hostPath:
+            path: /var/log/pods/woocommerce
+            type: DirectoryOrCreate
