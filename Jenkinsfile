@@ -49,13 +49,13 @@ spec:
   volumes:
     - name: docker-socket
       hostPath:
-        path: /var/run/docker.sock
+        path: /run
   containers:
     - name: docker
       image: docker:20.10.7-dind
       readinessProbe:
         exec:
-          command: [ "sh", "-c", "ls -l /var/run/docker.sock" ]
+          command: [ "sh", "-c", "ls -l /run/docker.sock" ]
         initialDelaySeconds: 30
         periodSeconds: 10
         failureThreshold: 10
@@ -63,12 +63,12 @@ spec:
       args:
         - |
           apk add --no-cache python3 py3-pip groff less bash curl git iptables && \
-          dockerd --storage-driver=vfs -H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock
+          dockerd --storage-driver=vfs -H tcp://0.0.0.0:2375 -H unix:///run/docker.sock
       securityContext:
         privileged: true
       volumeMounts:
         - name: docker-socket
-          mountPath: /var/run/docker.sock
+          mountPath: /run
     - name: kubectl
       image: bitnami/kubectl:1.26.0
       command: [ "sleep" ]
@@ -106,7 +106,7 @@ spec:
                      branch: 'main'
                  script {
                      withCredentials([usernamePassword(credentialsId: 'github_pw', passwordVariable:"password", usernameVariable: "username")]) {
-                         sh "chmod +x ~/workspace/woocommerce /var/jenkins_home/workspace/woocommerce"
+                         sh "chmod +x ~/workspace/woocommerce /jenkins_home/workspace/woocommerce"
                          sh "sed -i 's@image: .*@image: 339712790288.dkr.ecr.ap-northeast-2.amazonaws.com/woocommerce:${env.BUILD_NUMBER}@g' woocommerce-deploy.yaml"
                          sh "cat woocommerce-deploy.yaml"
                          sh "git add woocommerce-deploy.yaml"
