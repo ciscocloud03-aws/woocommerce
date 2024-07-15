@@ -16,13 +16,15 @@ spec:
       affinity:
         podAntiAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
-            - labelSelector:
-                matchExpressions:
-                  - key: app
-                    operator: In
-                    values:
-                      - woocommerce
-              topologyKey: "kubernetes.io/hostname"
+            - weight: 100
+              podAffinityTerm:
+                labelSelector:
+                  matchExpressions:
+                    - key: app
+                      operator: In
+                      values:
+                        - woocommerce
+                topologyKey: "kubernetes.io/hostname"
       containers:
         - name: woocommerce
           image: 339712790288.dkr.ecr.ap-northeast-2.amazonaws.com/woocommerce:latest

@@ -4,10 +4,10 @@ metadata:
   name: woocommerce-svc
   namespace: woo
 spec:
-  type: LoadBalancer
   selector:
     app: woocommerce
   ports:
     - name: http
       port: 80
       targetPort: 80
+
