@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: woocommerce
-  namespace: woocommerce
+  namespace: woo
 spec:
   replicas: 3
   selector:
