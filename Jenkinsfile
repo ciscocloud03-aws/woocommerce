@@ -112,6 +112,7 @@ spec:
                          sh "sed -i 's@image: .*@image: 339712790288.dkr.ecr.ap-northeast-2.amazonaws.com/woocommerce:${env.BUILD_NUMBER}@g' /var/jenkins_home/workspace/woocommerce/woo-manifest/woocommerce-deploy.yaml"
                          sh "cat /var/jenkins_home/workspace/woocommerce/woo-manifest/woocommerce-deploy.yaml"
                          sh "git add /var/jenkins_home/workspace/woocommerce/woo-manifest/woocommerce-deploy.yaml"
+                         sh "git status" // 상태 확인
                          sh "git commit -m '[UPDATE] 5ka ${GIT_COMMIT} image versioning'"
                          sh "git push -f origin main" 
                      }
