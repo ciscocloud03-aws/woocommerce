@@ -49,13 +49,13 @@ spec:
   volumes:
     - name: docker-socket
       hostPath:
-        path: /var/run
+        path: /run
   containers:
     - name: docker
-      image: docker:20.10.7-dind
+      image: docker:20.10.7
       readinessProbe:
         exec:
-          command: [ "sh", "-c", "ls -l /var/run/docker.sock" ]
+          command: [ "sh", "-c", "ls -l /run/docker.sock" ]
         initialDelaySeconds: 30
         periodSeconds: 10
         failureThreshold: 10
@@ -63,12 +63,12 @@ spec:
       args:
         - |
           apk add --no-cache python3 py3-pip groff less bash curl git iptables && \
-          dockerd --storage-driver=vfs -H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock
+          dockerd --storage-driver=vfs -H tcp://0.0.0.0:2375 -H unix:///run/docker.sock
       securityContext:
         privileged: true
       volumeMounts:
         - name: docker-socket
-          mountPath: /var/run
+          mountPath: /run
     - name: kubectl
       image: bitnami/kubectl:1.26.0
       command: [ "sleep" ]
@@ -78,7 +78,7 @@ spec:
                             container('docker') {
                                 script {
                                     // AWS ECR 로그인
-                                    sh "apk add --no-cache python3 py3-pip groff less bash curl git iptables && pip3 install awscli"
+                                    sh "pip3 install awscli"
                                     sh "git clone https://github.com/ciscocloud03-aws/woocommerce.git /home/jenkins/agent/workspace/woocommerce"
                                     sh "aws ecr get-login-password --region ${AWS_REGION} | docker login --username AWS --password-stdin ${ECR_REGISTRY}"
 
