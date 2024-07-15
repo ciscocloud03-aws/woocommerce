@@ -76,7 +76,7 @@ spec:
                                 script {
                                     // AWS ECR 로그인
                                     sh "apk add --no-cache groff less bash curl git iptables python3 py3-pip && \
-                                    python3 -m venv /path/to/venv && . /path/to/venv/bin/activate && \
+                                    python3 -m venv /venv && . /venv/bin/activate && \
                                     pip install awscli && deactivate && which aws"
                                     sh "git clone https://github.com/ciscocloud03-aws/woocommerce.git /home/jenkins/agent/woocommerce"
                                     sh "aws ecr get-login-password --region ${AWS_REGION} | docker login --username AWS --password-stdin ${ECR_REGISTRY}"
