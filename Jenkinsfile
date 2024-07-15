@@ -108,7 +108,7 @@ spec:
                          sh "git config --global user.email smth.hyj@gmail.com"
                          sh "git config --global user.name $username"
                          sh "git remote set-url origin https://${username}:${password}@github.com/ciscocloud03-aws/woo-manifest.git"
-                         sh "git clone https://${username}:${password}@github.com/ciscocloud03-aws/woo-manifest.git /var/jenkins_home/workspace/woo-manifest"
+                         sh "rm -rf /var/jenkins_home/workspace/woo-menifest && git clone https://${username}:${password}@github.com/ciscocloud03-aws/woo-manifest.git /var/jenkins_home/workspace/woo-manifest"
                          sh "sed -i 's@image: .*@image: 339712790288.dkr.ecr.ap-northeast-2.amazonaws.com/woocommerce:${env.BUILD_NUMBER}@g' /var/jenkins_home/workspace/woo-manifest/woocommerce-deploy.yaml"
                          sh "cat /var/jenkins_home/workspace/woo-manifest/woocommerce-deploy.yaml"
                          sh "git add /var/jenkins_home/workspace/woo-manifest/woocommerce-deploy.yaml"
