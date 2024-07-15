@@ -107,7 +107,7 @@ spec:
                      withCredentials([usernamePassword(credentialsId: 'github_pw', passwordVariable:"password", usernameVariable: "username")]) {
                          sh "git config --global user.email smth.hyj@gmail.com"
                          sh "git config --global user.name $username"
-                         sh "git clone https://github.com/ciscocloud03-aws/woo-manifest.git"
+                         sh "git clone https://${username}:${password}@github.com/ciscocloud03-aws/woo-manifest.git"
                          sh "chmod +x ~/workspace/woo-manifest"
                          sh "sed -i 's@image: .*@image: 339712790288.dkr.ecr.ap-northeast-2.amazonaws.com/woocommerce:${env.BUILD_NUMBER}@g' woocommerce-deploy.yaml"
                          sh "cat woocommerce-deploy.yaml"
