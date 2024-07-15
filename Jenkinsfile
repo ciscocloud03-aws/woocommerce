@@ -55,7 +55,7 @@ spec:
       image: docker:27.0.3
       readinessProbe:
         exec:
-          command: [ "sh", "-c", "ls -l /run/docker.sock" ]
+          command: [ "sh", "-c", "ls -l /run" ]
         initialDelaySeconds: 30
         periodSeconds: 10
         failureThreshold: 10
