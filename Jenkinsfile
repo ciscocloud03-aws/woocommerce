@@ -110,8 +110,8 @@ spec:
                          sh "git clone https://${username}:${password}@github.com/ciscocloud03-aws/woo-manifest.git /var/jenkins_home/workspace/woo-manifest"
                          sh "sed -i 's@image: .*@image: 339712790288.dkr.ecr.ap-northeast-2.amazonaws.com/woocommerce:${env.BUILD_NUMBER}@g' /var/jenkins_home/workspace/woo-manifest/woocommerce-deploy.yaml"
                          sh "cat /var/jenkins_home/workspace/woo-manifest/woocommerce-deploy.yaml"
-                         sh "git add /var/jenkins_home/workspace/woo-manifest/woocommerce-deploy.yaml"
                          sh "git remote set-url origin https://${username}:${password}@github.com/ciscocloud03-aws/woo-manifest.git"
+                         sh "git add /var/jenkins_home/workspace/woo-manifest/woocommerce-deploy.yaml"
                          sh "git commit -m '[UPDATE] 5ka ${GIT_COMMIT} image versioning'"
                          sh "git push -f origin main" 
                      }
