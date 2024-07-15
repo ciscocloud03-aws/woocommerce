@@ -75,7 +75,7 @@ spec:
                             container('docker') {
                                 script {
                                     // AWS ECR 로그인
-                                    sh "apk add --no-cache groff less bash curl git iptables python3 py3-pip py3-venv && \
+                                    sh "apk add --no-cache groff less bash curl git iptables python3 py3-pip && \
                                     python3 -m venv /path/to/venv && . /path/to/venv/bin/activate && \
                                     pip install awscli && deactivate"
                                     sh "git clone https://github.com/ciscocloud03-aws/woocommerce.git /home/jenkins/agent/woocommerce"
