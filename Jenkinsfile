@@ -50,7 +50,6 @@ spec:
     - name: docker-socket
       hostPath:
         path: /run/docker.sock
-        type: Socket
   containers:
     - name: docker
       image: docker:27.0.3
