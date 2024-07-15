@@ -7,11 +7,11 @@ USER root
 COPY --chown=www-data:www-data . /tmp
 
 # 필요한 파일만 /var/www/html 디렉토리로 복사하고 권한 설정
-RUN cp -fp wp-config.php /var/www/html/ \
-    && cp -fp .htaccess /var/www/html/ \
-    && cp -rfp woocommerce /var/www/html/wp-content/plugins/ \
+RUN cp -fp /tmp/wp-config.php /var/www/html/ \
+    && cp -fp /tmp/.htaccess /var/www/html/ \
+    && cp -rfp /tmp/woocommerce /var/www/html/wp-content/plugins/ \
     && chmod -R 755 /var/www/html/wp-content/plugins/woocommerce /var/www/html/*\
-    && rm -rf /tmp/* \
+    && rm -rf /tmp \
     && ls -l /var/www/html/wp-content/plugins
 
 # 기본 사용자로 전환
