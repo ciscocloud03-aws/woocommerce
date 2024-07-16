@@ -109,8 +109,8 @@ spec:
                          sh "git config --global user.name $username"
                          sh "git remote set-url kube https://${username}:${password}@github.com/ciscocloud03-aws/woo-manifest.git && git remote -v && git remote update kube --prune"
                          sh "rm -rf /var/jenkins_home/workspace/woocommerce/woo-manifest && git clone https://${username}:${password}@github.com/ciscocloud03-aws/woo-manifest.git /var/jenkins_home/workspace/woocommerce/woo-manifest"
-                         sh "git init && sed -i 's@image: .*@image: 339712790288.dkr.ecr.ap-northeast-2.amazonaws.com/woocommerce:${env.BUILD_NUMBER}@g' /var/jenkins_home/workspace/woocommerce/woo-manifest/woo-deploy.yaml"
-                         sh "cd /var/jenkins_home/workspace/woocommerce/woo-manifest && cat woo-deploy.yaml && id && git add -A"
+                         sh "cd /var/jenkins_home/workspace/woocommerce/woo-manifest && git init && sed -i 's@image: .*@image: 339712790288.dkr.ecr.ap-northeast-2.amazonaws.com/woocommerce:${env.BUILD_NUMBER}@g' /var/jenkins_home/workspace/woocommerce/woo-manifest/woo-deploy.yaml"
+                         sh "cat woo-deploy.yaml && id && git add -A"
                          sh "git status" // 상태 확인
                          sh "git commit -m '[UPDATE] 5ka ${GIT_COMMIT} image versioning'"
                          sh "git push -f kube main" 
