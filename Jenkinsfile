@@ -107,7 +107,7 @@ spec:
                      withCredentials([usernamePassword(credentialsId: 'github_pw', passwordVariable:"password", usernameVariable: "username")]) {
                          sh "git config --global user.email smth.hyj@gmail.com"
                          sh "git config --global user.name $username"
-                         sh "git remote add kube https://${username}:${password}@github.com/ciscocloud03-aws/woo-manifest.git && git remote"
+                         sh "git remote add kube https://${username}:${password}@github.com/ciscocloud03-aws/woo-manifest.git && git remote -v && git remote update kube --prune"
                          sh "rm -rf /var/jenkins_home/workspace/woocommerce/woo-manifest && git clone https://${username}:${password}@github.com/ciscocloud03-aws/woo-manifest.git /var/jenkins_home/workspace/woocommerce/woo-manifest"
                          sh "sed -i 's@image: .*@image: 339712790288.dkr.ecr.ap-northeast-2.amazonaws.com/woocommerce:${env.BUILD_NUMBER}@g' /var/jenkins_home/workspace/woocommerce/woo-manifest/woo-deploy.yaml"
                          sh "cd /var/jenkins_home/workspace/woocommerce/woo-manifest && cat woo-deploy.yaml && id && git add -A"
