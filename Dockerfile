@@ -12,7 +12,6 @@ WORKDIR /var/www/html
 RUN cp -fp /tmp/wp-config.php /var/www/html/ \
     && cp -rfp /tmp/woocommerce /var/www/html/wp-content/plugins/ \
     && chmod 755 /var/www/html /var/www/html/wp-content/plugins/woocommerce \
-    && chmod 644 /var/www/html/.htaccess \
     && chmod 640 /var/www/html/wp-config.php \
     && rm -rf /tmp \
     && ls -l /var/www/html/wp-content/plugins 
@@ -24,7 +23,8 @@ RUN touch /var/www/html/.htaccess && \
     \n\tRewriteCond %{REQUEST_FILENAME} !-f \ 
     \n\tRewriteCond %{REQUEST_FILENAME} !-d\n\tRewriteRule . /index.php [L] \
     \n\n\tRewriteCond %{SERVER_PORT} 443 \ 
-    \n\tRewriteRule ^(.*)$ https://www.musicin.shop/$1 [R,L]\n</IfModule>'
+    \n\tRewriteRule ^(.*)$ https://www.musicin.shop/$1 [R,L]\n</IfModule>' && \
+    chmod 644 /var/www/html/.htaccess
 
 # 기본 사용자로 전환
 USER www-data
