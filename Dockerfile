@@ -1,7 +1,7 @@
 FROM wordpress:latest
 
 # 필요한 패키지를 설치합니다.
-RUN apt-get update && apt-get install -y \
+RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 # 모든 파일을 /workspace 디렉토리로 복사합니다.
