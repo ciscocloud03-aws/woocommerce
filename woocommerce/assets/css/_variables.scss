@@ -17,8 +17,8 @@ $secondarytext:     desaturate(darken($secondary, 60%), 21%) !default;   // Text
 $highlight:         adjust-hue($primary, 150deg) !default;               // Prices, In stock labels, sales flash
 $highlightext:      desaturate(lighten($highlight, 50%), 18%) !default;  // Text on highlight color bg
 
-$contentbg:         #fff !default;                                     // Content BG - Tabs (active state)
-$subtext:           #767676 !default;                                  // small, breadcrumbs etc
+$contentbg:         #767676 !default;                                     // Content BG - Tabs (active state)
+$subtext:           #ffffff !default;                                  // small, breadcrumbs etc
 
 // export vars as CSS vars
 :root {
