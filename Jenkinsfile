@@ -107,15 +107,15 @@ spec:
                      withCredentials([usernamePassword(credentialsId: 'github_pw', passwordVariable:"password", usernameVariable: "username")]) {
                          sh """git config --global user.email smth.hyj@gmail.com &&
                          git config --global user.name $username && 
-                         git remote set-url kube https://${username}:${password}@github.com/ciscocloud03-aws/woo-manifest.git && git remote -v && git remote update kube --prune &&
                          rm -rf /var/jenkins_home/workspace/woocommerce/woo-manifest && git clone https://${username}:${password}@github.com/ciscocloud03-aws/woo-manifest.git /var/jenkins_home/workspace/woocommerce/woo-manifest &&
                          cd /var/jenkins_home/workspace/woocommerce/woo-manifest && 
                          sed -i 's@image: .*@image: 339712790288.dkr.ecr.ap-northeast-2.amazonaws.com/woocommerce:${env.BUILD_NUMBER}@g' /var/jenkins_home/workspace/woocommerce/woo-manifest/woo-deploy.yaml &&
                          cd /var/jenkins_home/workspace/woocommerce/woo-manifest &&
+                         git remote set-url kube https://${username}:${password}@github.com/ciscocloud03-aws/woo-manifest.git && git remote -v && git remote update kube --prune &&
                          cat woo-deploy.yaml && id && git add -A &&
                          git status &&
                          git commit -m '[UPDATE] 5ka ${GIT_COMMIT} image versioning' &&
-                         git push -f kube main
+                         git push kube main
                          """
                      }
                  }
