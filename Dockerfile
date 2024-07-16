@@ -18,6 +18,6 @@ RUN rm -f /var/www/html/.htaccess && cp .htaccess /var/www/html/.htaccess
 
 # WordPress와 WooCommerce의 권한을 설정합니다.
 RUN chown -R www-data:www-data /var/www/html/wp-content/plugins/woocommerce \
-    && chmod -R 755 /var/www/html/wp-content/plugins/woocommerce
+    && find /var/www -type d -exec chmod 755 {} \;
 
 EXPOSE 80
