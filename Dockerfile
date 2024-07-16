@@ -22,6 +22,4 @@ RUN chown -R www-data:www-data /var/www/html/wp-content/plugins/woocommerce \
 
 WORKDIR /var/www/html
 
-USER www-data
-
 EXPOSE 80
