@@ -20,4 +20,8 @@ RUN rm -f /var/www/html/.htaccess && cp .htaccess /var/www/html/.htaccess
 RUN chown -R www-data:www-data /var/www/html/wp-content/plugins/woocommerce \
     && find /var/www -type d -exec chmod 755 {} \;
 
+WORKDIR /var/www/html
+
+USER www-data
+
 EXPOSE 80
