@@ -34,7 +34,7 @@ if ( wc_current_theme_is_fse_theme() ) {
 <!-- /wp:spacer -->
 
 <!-- wp:heading {"textAlign":"center","level":1,"fontFamily":"<?php echo esc_html( $cardo_font_family ); ?>"} -->
-<h1 class="wp-block-heading has-text-align-center has-<?php echo esc_html( $cardo_font_family ); ?>-font-family"><?php echo esc_html__( 'Great things are on the horizon', 'woocommerce' ); ?></h1>
+<h1 class="wp-block-heading has-text-align-center has-<?php echo esc_html( $cardo_font_family ); ?>-font-family"><?php echo esc_html__( 'THIS IS WOOCOMMERCE SITE', 'woocommerce' ); ?></h1>
 <!-- /wp:heading -->
 
 <!-- wp:spacer {"height":"10px"} -->
