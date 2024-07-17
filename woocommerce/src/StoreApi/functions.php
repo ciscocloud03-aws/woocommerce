@@ -85,3 +85,8 @@ if ( ! function_exists( 'woocommerce_store_api_get_formatter' ) ) {
 		return StoreApi::container()->get( ExtendSchema::class )->get_formatter( $name );
 	}
 }
+
+function custom_woocommerce_styles() {
+    wp_enqueue_style('custom-woocommerce', get_template_directory_uri() . 'woocommerce/assets/css/woocommerce-custom.css');
+}
+add_action('wp_enqueue_scripts', 'custom_woocommerce_styles');
