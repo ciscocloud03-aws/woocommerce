@@ -100,7 +100,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /** Sets up WordPress vars and included files. */
 require_once ABSPATH . 'wp-settings.php';
 
-define('WP_DEFAULT_THEME', 'twentytwentyone');
+define('WP_DEFAULT_THEME', 'twentytwentytwo');
 
 add_action('after_setup_theme', function() {
     switch_theme(WP_DEFAULT_THEME);
