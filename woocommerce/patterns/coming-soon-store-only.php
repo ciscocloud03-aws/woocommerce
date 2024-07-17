@@ -12,7 +12,7 @@ $current_theme     = wp_get_theme()->get_stylesheet();
 $inter_font_family = 'inter';
 $cardo_font_family = 'cardo';
 
-if ( 'twentytwentyfour' === $current_theme ) {
+if ( 'twentytwenty' === $current_theme ) {
 	$inter_font_family = 'body';
 	$cardo_font_family = 'heading';
 }

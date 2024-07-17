@@ -279,9 +279,9 @@ class OnboardingThemes extends \WC_REST_Data_Controller {
 					),
 				),
 				'total_palettes' => 0,
-				'slug'           => 'twentytwentyfour',
-				'thumbnail_url'  => 'https://i0.wp.com/themes.svn.wordpress.org/twentytwentyfour/1.0/screenshot.png',
-				'link_url'       => 'https://wordpress.org/themes/twentytwentyfour/',
+				'slug'           => 'twentytwenty',
+				'thumbnail_url'  => 'https://i0.wp.com/themes.svn.wordpress.org/twentytwenty/1.0/screenshot.png',
+				'link_url'       => 'https://wordpress.org/themes/twentytwenty/',
 			),
 			array(
 				'name'           => 'Highline',
