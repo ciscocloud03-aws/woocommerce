@@ -20,15 +20,15 @@ $button = $content['buttons'][0]['default'] ?? '';
 	</figure>
 	<!-- /wp:image -->
 
-	<!-- wp:paragraph {"align":"center","style":{"color":{"text":"#000000"}},"fontSize":"large"} -->
-	<p class="has-text-align-center has-text-color has-large-font-size" style="color:#000000"><?php echo esc_html( $category_title ); ?></p>
+	<!-- wp:paragraph {"align":"center","style":{"color":{"text":"#0F4C85"}},"fontSize":"large"} -->
+	<p class="has-text-align-center has-text-color has-large-font-size" style="color:#0F4C85"><?php echo esc_html( $category_title ); ?></p>
 	<!-- /wp:paragraph -->
 
 	<!-- wp:buttons -->
 	<div class="wp-block-buttons">
-		<!-- wp:button {"style":{"color":{"text":"#ffffff","background":"#000000"},"border":{"width":"0px","style":"none"}}} -->
+		<!-- wp:button {"style":{"color":{"text":"#C5D1E8","background":"#0F4C85"},"border":{"width":"0px","style":"none"}}} -->
 		<div class="wp-block-button">
-			<a href="<?php echo esc_url( wc_get_page_permalink( 'shop' ) ); ?>" class="wp-block-button__link has-text-color has-background wp-element-button" style="border-style:none;border-width:0px;color:#ffffff;background-color:#000000"><?php echo esc_html( $button ); ?></a>
+			<a href="<?php echo esc_url( wc_get_page_permalink( 'shop' ) ); ?>" class="wp-block-button__link has-text-color has-background wp-element-button" style="border-style:none;border-width:0px;color:#C5D1E8;background-color:#0F4C85"><?php echo esc_html( $button ); ?></a>
 		</div>
 		<!-- /wp:button -->
 	</div>

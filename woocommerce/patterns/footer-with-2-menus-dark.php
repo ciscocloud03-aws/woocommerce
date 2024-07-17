@@ -43,7 +43,7 @@
 			</div>
 			<!-- /wp:group -->
 
-			<!-- wp:social-links {"iconColor":"background","iconColorValue":"#ffffff","className":"is-style-logos-only"} -->
+			<!-- wp:social-links {"iconColor":"background","iconColorValue":"#C5D1E8","className":"is-style-logos-only"} -->
 			<ul class="wp-block-social-links has-icon-color is-style-logos-only">
 				<!-- wp:social-link {"service":"facebook"} /-->
 				<!-- wp:social-link {"service":"instagram"} /-->

@@ -170,11 +170,11 @@ class WC_Settings_Emails extends WC_Settings_Page {
 				array(
 					'title'    => __( 'Body background color', 'woocommerce' ),
 					/* translators: %s: default color */
-					'desc'     => sprintf( __( 'The main body background color. Default %s.', 'woocommerce' ), '<code>#ffffff</code>' ),
+					'desc'     => sprintf( __( 'The main body background color. Default %s.', 'woocommerce' ), '<code>#C5D1E8</code>' ),
 					'id'       => 'woocommerce_email_body_background_color',
 					'type'     => 'color',
 					'css'      => 'width:6em;',
-					'default'  => '#ffffff',
+					'default'  => '#C5D1E8',
 					'autoload' => false,
 					'desc_tip' => true,
 				),

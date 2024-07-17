@@ -1251,8 +1251,8 @@ QRBitBuffer.prototype = {
 			height		: 256,
 			typeNumber	: -1,
 			correctLevel	: QRErrorCorrectLevel.H,
-                        background      : "#ffffff",
-                        foreground      : "#000000"
+                        background      : "#C5D1E8",
+                        foreground      : "#0F4C85"
 		}, options);
 
 		var createCanvas	= function(){

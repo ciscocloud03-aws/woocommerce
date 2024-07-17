@@ -11,7 +11,7 @@ table {
 	padding: <?php echo $data['constants']['margin'] / 2; ?>pt;
 }
 table td:last-child { width: 30%; text-align: right; }
-table tr:last-child { color: #000000; font-weight: bold; }
+table tr:last-child { color: #0F4C85; font-weight: bold; }
 footer {
 	font-size: <?php echo $data['constants']['footer_font_size']; ?>pt;
 	border-top: 1px solid #707070;

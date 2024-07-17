@@ -296,7 +296,7 @@ abstract class FeaturedItem extends AbstractDynamicBlock {
 		} elseif ( isset( $attributes['overlayColor'] ) ) {
 			$overlay_styles = sprintf( 'background-color: %s', $attributes['overlayColor'] );
 		} else {
-			$overlay_styles = 'background-color: #000000';
+			$overlay_styles = 'background-color: #0F4C85';
 		}
 
 		return sprintf( '<div class="background-dim__overlay" style="%s"></div>', esc_attr( $overlay_styles ) );

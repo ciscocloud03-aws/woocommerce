@@ -18,12 +18,12 @@ $fourth_title = $content['titles'][3]['default'] ?? '';
 		<div class="wp-block-cover is-light has-custom-content-position is-position-top-left has-background-color has-text-color" style="padding-top:0.8em;min-height:130px">
 			<span aria-hidden="true" class="wp-block-cover__background has-background-dim-100 has-background-dim" style="background-color:#e09300"></span>
 			<div class="wp-block-cover__inner-container">
-				<!-- wp:paragraph {"align":"left","placeholder":"Write title…","style":{"typography":{"fontSize":"0.7em","lineHeight":"1"},"spacing":{"margin":{"top":"0px","bottom":"5px"}},"color":{"text":"#ffffff"},"elements":{"link":{"color":{"text":"var:preset|color|base"}}}}} -->
-				<p class="has-text-align-left has-text-color has-link-color" style="color:#ffffff;margin-top:0px;margin-bottom:5px;font-size:0.7em;line-height:1"><a style="text-decoration:none;" href="<?php echo esc_url( wc_get_page_permalink( 'shop' ) ); ?>?rating_filter=5">Highest</a></p>
+				<!-- wp:paragraph {"align":"left","placeholder":"Write title…","style":{"typography":{"fontSize":"0.7em","lineHeight":"1"},"spacing":{"margin":{"top":"0px","bottom":"5px"}},"color":{"text":"#C5D1E8"},"elements":{"link":{"color":{"text":"var:preset|color|base"}}}}} -->
+				<p class="has-text-align-left has-text-color has-link-color" style="color:#C5D1E8;margin-top:0px;margin-bottom:5px;font-size:0.7em;line-height:1"><a style="text-decoration:none;" href="<?php echo esc_url( wc_get_page_permalink( 'shop' ) ); ?>?rating_filter=5">Highest</a></p>
 				<!-- /wp:paragraph -->
 
-				<!-- wp:paragraph {"style":{"typography":{"fontSize":"0.7em","lineHeight":"1"},"spacing":{"margin":{"top":"0px","bottom":"5px"}},"color":{"text":"#ffffff"},"elements":{"link":{"color":{"text":"var:preset|color|base"}}}},"fontSize":"large"} -->
-				<p class="has-text-color has-link-color has-large-font-size" style="color:#ffffff;margin-top:0px;margin-bottom:5px;font-size:0.7em;line-height:1"><strong><a style="text-decoration:none;" href="<?php echo esc_url( wc_get_page_permalink( 'shop' ) ); ?>?rating_filter=5">rated</a></strong></p>
+				<!-- wp:paragraph {"style":{"typography":{"fontSize":"0.7em","lineHeight":"1"},"spacing":{"margin":{"top":"0px","bottom":"5px"}},"color":{"text":"#C5D1E8"},"elements":{"link":{"color":{"text":"var:preset|color|base"}}}},"fontSize":"large"} -->
+				<p class="has-text-color has-link-color has-large-font-size" style="color:#C5D1E8;margin-top:0px;margin-bottom:5px;font-size:0.7em;line-height:1"><strong><a style="text-decoration:none;" href="<?php echo esc_url( wc_get_page_permalink( 'shop' ) ); ?>?rating_filter=5">rated</a></strong></p>
 				<!-- /wp:paragraph -->
 			</div>
 		</div>
@@ -47,12 +47,12 @@ $fourth_title = $content['titles'][3]['default'] ?? '';
 		<div class="wp-block-cover has-custom-content-position is-position-top-left has-background-color has-text-color" style="padding-top:0.8em;min-height:130px">
 			<span aria-hidden="true" class="wp-block-cover__background has-background-dim-100 has-background-dim" style="background-color:#6f64f1"></span>
 			<div class="wp-block-cover__inner-container">
-				<!-- wp:paragraph {"align":"left","placeholder":"Write title…","style":{"typography":{"fontSize":"0.7em","lineHeight":"1"},"spacing":{"margin":{"top":"0px","bottom":"5px"}},"color":{"text":"#ffffff"},"elements":{"link":{"color":{"text":"var:preset|color|base"}}}}} -->
-				<p class="has-text-align-left has-text-color has-link-color" style="color:#ffffff;margin-top:0px;margin-bottom:5px;font-size:0.7em;line-height:1"><a style="text-decoration:none;" href="<?php echo esc_url( wc_get_page_permalink( 'shop' ) ); ?>?max_price=15">Under</a></p>
+				<!-- wp:paragraph {"align":"left","placeholder":"Write title…","style":{"typography":{"fontSize":"0.7em","lineHeight":"1"},"spacing":{"margin":{"top":"0px","bottom":"5px"}},"color":{"text":"#C5D1E8"},"elements":{"link":{"color":{"text":"var:preset|color|base"}}}}} -->
+				<p class="has-text-align-left has-text-color has-link-color" style="color:#C5D1E8;margin-top:0px;margin-bottom:5px;font-size:0.7em;line-height:1"><a style="text-decoration:none;" href="<?php echo esc_url( wc_get_page_permalink( 'shop' ) ); ?>?max_price=15">Under</a></p>
 				<!-- /wp:paragraph -->
 
-				<!-- wp:paragraph {"style":{"typography":{"fontSize":"0.7em","lineHeight":"1"},"spacing":{"margin":{"top":"0px","bottom":"5px"}},"color":{"text":"#ffffff"},"elements":{"link":{"color":{"text":"var:preset|color|base"}}}},"fontSize":"large"} -->
-				<p class="has-text-color has-link-color has-large-font-size" style="color:#ffffff;margin-top:0px;margin-bottom:5px;font-size:0.7em;line-height:1"><strong><a style="text-decoration:none;" href="<?php echo esc_url( wc_get_page_permalink( 'shop' ) ); ?>?max_price=15">$15</a></strong></p>
+				<!-- wp:paragraph {"style":{"typography":{"fontSize":"0.7em","lineHeight":"1"},"spacing":{"margin":{"top":"0px","bottom":"5px"}},"color":{"text":"#C5D1E8"},"elements":{"link":{"color":{"text":"var:preset|color|base"}}}},"fontSize":"large"} -->
+				<p class="has-text-color has-link-color has-large-font-size" style="color:#C5D1E8;margin-top:0px;margin-bottom:5px;font-size:0.7em;line-height:1"><strong><a style="text-decoration:none;" href="<?php echo esc_url( wc_get_page_permalink( 'shop' ) ); ?>?max_price=15">$15</a></strong></p>
 				<!-- /wp:paragraph -->
 			</div>
 		</div>
@@ -78,12 +78,12 @@ $fourth_title = $content['titles'][3]['default'] ?? '';
 		<div class="wp-block-cover has-custom-content-position is-position-top-left has-background-color has-text-color" style="padding-top:0.8em;min-height:130px">
 			<span aria-hidden="true" class="wp-block-cover__background has-background-dim-100 has-background-dim" style="background-color:#c1d21c"></span>
 			<div class="wp-block-cover__inner-container">
-				<!-- wp:paragraph {"align":"left","placeholder":"Write title…","style":{"typography":{"fontSize":"0.7em","lineHeight":"1"},"spacing":{"margin":{"top":"0px","bottom":"5px"}},"color":{"text":"#ffffff"},"elements":{"link":{"color":{"text":"var:preset|color|base"}}}}} -->
-				<p class="has-text-align-left has-text-color has-link-color" style="color:#ffffff;margin-top:0px;margin-bottom:5px;font-size:0.7em;line-height:1"><a style="text-decoration:none;" href="<?php echo esc_url( wc_get_page_permalink( 'shop' ) ); ?>?max_price=25">Under</a></p>
+				<!-- wp:paragraph {"align":"left","placeholder":"Write title…","style":{"typography":{"fontSize":"0.7em","lineHeight":"1"},"spacing":{"margin":{"top":"0px","bottom":"5px"}},"color":{"text":"#C5D1E8"},"elements":{"link":{"color":{"text":"var:preset|color|base"}}}}} -->
+				<p class="has-text-align-left has-text-color has-link-color" style="color:#C5D1E8;margin-top:0px;margin-bottom:5px;font-size:0.7em;line-height:1"><a style="text-decoration:none;" href="<?php echo esc_url( wc_get_page_permalink( 'shop' ) ); ?>?max_price=25">Under</a></p>
 				<!-- /wp:paragraph -->
 
-				<!-- wp:paragraph {"style":{"typography":{"fontSize":"0.7em","lineHeight":"1"},"spacing":{"margin":{"top":"0px","bottom":"5px"}},"color":{"text":"#ffffff"},"elements":{"link":{"color":{"text":"var:preset|color|base"}}}},"fontSize":"large"} -->
-				<p class="has-text-color has-link-color has-large-font-size" style="color:#ffffff;margin-top:0px;margin-bottom:5px;font-size:0.7em;line-height:1"><strong><a style="text-decoration:none;" href="<?php echo esc_url( wc_get_page_permalink( 'shop' ) ); ?>?max_price=25">$25</a></strong></p>
+				<!-- wp:paragraph {"style":{"typography":{"fontSize":"0.7em","lineHeight":"1"},"spacing":{"margin":{"top":"0px","bottom":"5px"}},"color":{"text":"#C5D1E8"},"elements":{"link":{"color":{"text":"var:preset|color|base"}}}},"fontSize":"large"} -->
+				<p class="has-text-color has-link-color has-large-font-size" style="color:#C5D1E8;margin-top:0px;margin-bottom:5px;font-size:0.7em;line-height:1"><strong><a style="text-decoration:none;" href="<?php echo esc_url( wc_get_page_permalink( 'shop' ) ); ?>?max_price=25">$25</a></strong></p>
 				<!-- /wp:paragraph -->
 			</div>
 		</div>
@@ -109,12 +109,12 @@ $fourth_title = $content['titles'][3]['default'] ?? '';
 		<div class="wp-block-cover has-custom-content-position is-position-top-left has-background-color has-text-color" style="padding-top:0.8em;min-height:130px">
 			<span aria-hidden="true" class="wp-block-cover__background has-background-dim-100 has-background-dim" style="background-color:#10ca99"></span>
 			<div class="wp-block-cover__inner-container">
-				<!-- wp:paragraph {"align":"left","placeholder":"Write title…","style":{"typography":{"fontSize":"0.7em","lineHeight":"1"},"spacing":{"margin":{"top":"0px","bottom":"5px"}},"color":{"text":"#ffffff"},"elements":{"link":{"color":{"text":"var:preset|color|base"}}}}} -->
-				<p class="has-text-align-left has-text-color has-link-color" style="color:#ffffff;margin-top:0px;margin-bottom:5px;font-size:0.7em;line-height:1"><a style="text-decoration:none;" href="<?php echo esc_url( wc_get_page_permalink( 'shop' ) ); ?>?max_price=20">Under</a></p>
+				<!-- wp:paragraph {"align":"left","placeholder":"Write title…","style":{"typography":{"fontSize":"0.7em","lineHeight":"1"},"spacing":{"margin":{"top":"0px","bottom":"5px"}},"color":{"text":"#C5D1E8"},"elements":{"link":{"color":{"text":"var:preset|color|base"}}}}} -->
+				<p class="has-text-align-left has-text-color has-link-color" style="color:#C5D1E8;margin-top:0px;margin-bottom:5px;font-size:0.7em;line-height:1"><a style="text-decoration:none;" href="<?php echo esc_url( wc_get_page_permalink( 'shop' ) ); ?>?max_price=20">Under</a></p>
 				<!-- /wp:paragraph -->
 
-				<!-- wp:paragraph {"style":{"typography":{"fontSize":"0.7em","lineHeight":"1"},"spacing":{"margin":{"top":"0px","bottom":"5px"}},"color":{"text":"#ffffff"},"elements":{"link":{"color":{"text":"var:preset|color|base"}}}},"fontSize":"large"} -->
-				<p class="has-text-color has-link-color has-large-font-size" style="color:#ffffff;margin-top:0px;margin-bottom:5px;font-size:0.7em;line-height:1"><strong><a style="text-decoration:none;" href="<?php echo esc_url( wc_get_page_permalink( 'shop' ) ); ?>?max_price=20">$20</a></strong></p>
+				<!-- wp:paragraph {"style":{"typography":{"fontSize":"0.7em","lineHeight":"1"},"spacing":{"margin":{"top":"0px","bottom":"5px"}},"color":{"text":"#C5D1E8"},"elements":{"link":{"color":{"text":"var:preset|color|base"}}}},"fontSize":"large"} -->
+				<p class="has-text-color has-link-color has-large-font-size" style="color:#C5D1E8;margin-top:0px;margin-bottom:5px;font-size:0.7em;line-height:1"><strong><a style="text-decoration:none;" href="<?php echo esc_url( wc_get_page_permalink( 'shop' ) ); ?>?max_price=20">$20</a></strong></p>
 				<!-- /wp:paragraph -->
 			</div>
 		</div>

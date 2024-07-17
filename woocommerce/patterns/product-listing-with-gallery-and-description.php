@@ -102,9 +102,9 @@
 		<div class="wp-block-group">
 			<!-- wp:buttons -->
 			<div class="wp-block-buttons">
-				<!-- wp:button {"style":{"spacing":{"padding":{"left":"80px","right":"80px"}},"color":{"text":"#ffffff","background":"#000000"}}} -->
+				<!-- wp:button {"style":{"spacing":{"padding":{"left":"80px","right":"80px"}},"color":{"text":"#C5D1E8","background":"#0F4C85"}}} -->
 				<div class="wp-block-button">
-					<a class="wp-block-button__link has-text-color has-background wp-element-button" style="color:#ffffff;background-color:#000000;padding-right:80px;padding-left:80px">Add to cart</a>
+					<a class="wp-block-button__link has-text-color has-background wp-element-button" style="color:#C5D1E8;background-color:#0F4C85;padding-right:80px;padding-left:80px">Add to cart</a>
 				</div>
 				<!-- /wp:button -->
 			</div>

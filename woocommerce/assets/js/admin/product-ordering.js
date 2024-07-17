@@ -21,7 +21,7 @@ jQuery( function( $ ) {
 			return ui;
 		},
 		start: function( event, ui ) {
-			ui.item.css( 'background-color', '#ffffff' );
+			ui.item.css( 'background-color', '#C5D1E8' );
 			ui.item.children( 'td, th' ).css( 'border-bottom-width', '0' );
 			ui.item.css( 'outline', '1px solid #dfdfdf' );
 		},

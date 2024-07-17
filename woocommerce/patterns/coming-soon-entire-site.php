@@ -113,7 +113,7 @@ body .is-layout-constrained > .alignwide {
 	gap: 48px;
 }
 .wp-block-loginout {
-	background-color: #000000;
+	background-color: #0F4C85;
 	border-radius: 6px;
 	display: flex;
 	height: 40px;
@@ -124,7 +124,7 @@ body .is-layout-constrained > .alignwide {
 	box-sizing: border-box;
 }
 .wp-block-loginout a {
-	color: #ffffff;
+	color: #C5D1E8;
 	text-decoration: none;
 	line-height: 17px;
 	font-size: 14px;

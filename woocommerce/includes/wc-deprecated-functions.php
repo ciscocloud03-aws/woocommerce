@@ -560,7 +560,7 @@ if ( ! function_exists( 'woocommerce_light_or_dark' ) ) {
 	/**
 	 * @deprecated 3.0
 	 */
-	function woocommerce_light_or_dark( $color, $dark = '#000000', $light = '#FFFFFF' ) {
+	function woocommerce_light_or_dark( $color, $dark = '#0F4C85', $light = '#C5D1E8' ) {
 		wc_deprecated_function( __FUNCTION__, '3.0', 'wc_light_or_dark' );
 		return wc_light_or_dark( $color, $dark, $light );
 	}

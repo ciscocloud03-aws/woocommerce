@@ -546,7 +546,7 @@ Licensed under the MIT license.
                         radius: 3,
                         lineWidth: 2, // in pixels
                         fill: true,
-                        fillColor: "#ffffff",
+                        fillColor: "#C5D1E8",
                         symbol: "circle" // or callback
                     },
                     lines: {

@@ -349,17 +349,17 @@ class OnboardingThemes extends \WC_REST_Data_Controller {
 				'color_palettes' => array(
 					array(
 						'title'     => 'Foreground and background',
-						'primary'   => '#000000',
+						'primary'   => '#0F4C85',
 						'secondary' => '#f1eee2',
 					),
 					array(
 						'title'     => 'Foreground and secondary',
-						'primary'   => '#000000',
+						'primary'   => '#0F4C85',
 						'secondary' => '#999999',
 					),
 					array(
 						'title'     => 'Foreground and accent',
-						'primary'   => '#000000',
+						'primary'   => '#0F4C85',
 						'secondary' => '#d82f16',
 					),
 					array(

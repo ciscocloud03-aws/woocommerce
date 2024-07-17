@@ -34,7 +34,7 @@ echo wp_kses(
 );
 
 $base_color       = get_option( 'woocommerce_email_base_color' );
-$base_text        = wc_light_or_dark( $base_color, '#202020', '#ffffff' );
+$base_text        = wc_light_or_dark( $base_color, '#202020', '#C5D1E8' );
 $container_styles = 'margin-top: 25px;';
 $buttons_styles   = "
 	font-style: normal;

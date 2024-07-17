@@ -81,7 +81,7 @@
 		},
 		"overlayColor": {
 			"type": "string",
-			"default": "#000000"
+			"default": "#0F4C85"
 		},
 		"overlayGradient": {
 			"type": "string"

@@ -948,7 +948,7 @@ $font-sf-pro-text: helveticaneue-light, "Helvetica Neue Light",
 #inventory_product_data .notice,
 #variable_product_options .notice {
 	display: flex;
-	background-color: #ffffff;
+	background-color: #C5D1E8;
 	border-color: #eee;
 	border-width: 1px 0px 0px 0px;
 	border-style: solid;
@@ -1454,7 +1454,7 @@ table.wc_status_table--tools {
 		overflow: hidden;
 		padding: 0 1em;
 		border-left: 1px solid #c3c4c7;
-		background: #ffffff;
+		background: #C5D1E8;
 	}
 
 	.log-timestamp {
@@ -1528,8 +1528,8 @@ table.wc_status_table--tools {
 	font-size: 80%;
 	font-weight: 700;
 	line-height: 1;
-	color: #000000;
-	background: #ffffff;
+	color: #0F4C85;
+	background: #C5D1E8;
 	text-align: center;
 	white-space: nowrap;
 	vertical-align: baseline;
@@ -1540,7 +1540,7 @@ table.wc_status_table--tools {
 
 	&:before {
 		content: "•";
-		color: #ffffff;
+		color: #C5D1E8;
 		margin-left: -1.3em;
 		margin-right: 0.7em;
 	}

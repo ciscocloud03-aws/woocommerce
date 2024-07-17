@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 $bg        = get_option( 'woocommerce_email_background_color' );
 $body      = get_option( 'woocommerce_email_body_background_color' );
 $base      = get_option( 'woocommerce_email_base_color' );
-$base_text = wc_light_or_dark( $base, '#202020', '#ffffff' );
+$base_text = wc_light_or_dark( $base, '#202020', '#C5D1E8' );
 $text      = get_option( 'woocommerce_email_text_color' );
 
 // Pick a contrasting color for links.

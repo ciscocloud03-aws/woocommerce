@@ -939,12 +939,12 @@ if ( ! function_exists( 'wc_light_or_dark' ) ) {
 	 *
 	 * @param mixed  $color Color.
 	 * @param string $dark  Darkest reference.
-	 *                      Defaults to '#000000'.
+	 *                      Defaults to '#0F4C85'.
 	 * @param string $light Lightest reference.
-	 *                      Defaults to '#FFFFFF'.
+	 *                      Defaults to '#C5D1E8'.
 	 * @return string
 	 */
-	function wc_light_or_dark( $color, $dark = '#000000', $light = '#FFFFFF' ) {
+	function wc_light_or_dark( $color, $dark = '#0F4C85', $light = '#C5D1E8' ) {
 		return wc_hex_is_light( $color ) ? $dark : $light;
 	}
 }

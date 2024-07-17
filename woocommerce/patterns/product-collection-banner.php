@@ -24,8 +24,8 @@ $first_description = $content['descriptions'][0]['default'] ?? '';
 				<span aria-hidden="true" class="wp-block-cover__background has-background-dim-20 has-background-dim"></span>
 				<img class="wp-block-cover__image-background" alt="" src="<?php echo esc_url( $image ); ?>" data-object-fit="cover" />
 				<div class="wp-block-cover__inner-container">
-					<!-- wp:paragraph {"align":"center","placeholder":"Write title…","style":{"typography":{"fontSize":"40px","textTransform":"uppercase","fontStyle":"normal","fontWeight":"700","lineHeight":"1.3"},"color":{"text":"#ffffff"}},"fontFamily":"inter"} -->
-					<p class="has-text-align-center has-text-color has-inter-font-family" style="color:#ffffff;font-size:40px;font-style:normal;font-weight:700;line-height:1.3;text-transform:uppercase"><?php echo esc_html( $first_title ); ?></p>
+					<!-- wp:paragraph {"align":"center","placeholder":"Write title…","style":{"typography":{"fontSize":"40px","textTransform":"uppercase","fontStyle":"normal","fontWeight":"700","lineHeight":"1.3"},"color":{"text":"#C5D1E8"}},"fontFamily":"inter"} -->
+					<p class="has-text-align-center has-text-color has-inter-font-family" style="color:#C5D1E8;font-size:40px;font-style:normal;font-weight:700;line-height:1.3;text-transform:uppercase"><?php echo esc_html( $first_title ); ?></p>
 					<!-- /wp:paragraph -->
 				</div>
 			</div>
@@ -35,15 +35,15 @@ $first_description = $content['descriptions'][0]['default'] ?? '';
 
 		<!-- wp:column {"verticalAlignment":"center"} -->
 		<div class="wp-block-column is-vertically-aligned-center">
-			<!-- wp:paragraph {"style":{"typography":{"fontSize":"22px","fontStyle":"normal","fontWeight":"300","lineHeight":"1.3"},"color":{"text":"#000000"}},"fontFamily":"inter"} -->
-			<p class="has-text-color has-inter-font-family" style="color:#000000;font-size:22px;font-style:normal;font-weight:300;line-height:1.3"><?php echo esc_html( $first_description ); ?></p>
+			<!-- wp:paragraph {"style":{"typography":{"fontSize":"22px","fontStyle":"normal","fontWeight":"300","lineHeight":"1.3"},"color":{"text":"#0F4C85"}},"fontFamily":"inter"} -->
+			<p class="has-text-color has-inter-font-family" style="color:#0F4C85;font-size:22px;font-style:normal;font-weight:300;line-height:1.3"><?php echo esc_html( $first_description ); ?></p>
 			<!-- /wp:paragraph -->
 
 			<!-- wp:buttons -->
 			<div class="wp-block-buttons">
-				<!-- wp:button {"style":{"color":{"background":"#ff7179","text":"#000000"},"border":{"radius":"100px","width":"0px","style":"none"}}} -->
+				<!-- wp:button {"style":{"color":{"background":"#ff7179","text":"#0F4C85"},"border":{"radius":"100px","width":"0px","style":"none"}}} -->
 				<div class="wp-block-button">
-					<a href="<?php echo esc_url( get_permalink( wc_get_page_id( 'shop' ) ) ); ?>" class="wp-block-button__link has-text-color has-background wp-element-button" style="border-style:none;border-width:0px;border-radius:100px;color:#000000;background-color:#ff7179">Shop now</a>
+					<a href="<?php echo esc_url( get_permalink( wc_get_page_id( 'shop' ) ) ); ?>" class="wp-block-button__link has-text-color has-background wp-element-button" style="border-style:none;border-width:0px;border-radius:100px;color:#0F4C85;background-color:#ff7179">Shop now</a>
 				</div>
 				<!-- /wp:button -->
 			</div>
