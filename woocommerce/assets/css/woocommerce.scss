@@ -29,7 +29,7 @@ p.demo_store,
 	background-color: $primary;
 	color: $primarytext;
 	z-index: 99998;
-	box-shadow: 0 1px 1em rgba(0, 0, 0, 0.2);
+	box-shadow: 0 1px 1em rgba(136, 113, 216, 0.2);
 	display: none;
 
 	a {
@@ -173,12 +173,12 @@ p.demo_store,
 			}
 
 			.woocommerce-product-gallery__wrapper .zoomImg {
-				background-color: #fff;
+				background-color: #000000;
 				opacity: 0;
 			}
 
 			.woocommerce-product-gallery__image--placeholder {
-				border: 1px solid #f2f2f2;
+				border: 1px solid #000000;
 			}
 
 			.woocommerce-product-gallery__image:nth-child(n+2) {
@@ -194,7 +194,7 @@ p.demo_store,
 				z-index: 9;
 				width: 36px;
 				height: 36px;
-				background: #fff;
+				background: #ea00ff;
 				text-indent: -9999px;
 				border-radius: 100%;
 				box-sizing: content-box;
@@ -204,7 +204,7 @@ p.demo_store,
 					display: block;
 					width: 10px;
 					height: 10px;
-					border: 2px solid #000;
+					border: 2px solid #ffffff;
 					border-radius: 100%;
 					position: absolute;
 					top: 9px;

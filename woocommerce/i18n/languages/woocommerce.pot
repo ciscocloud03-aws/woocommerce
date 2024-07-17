@@ -18753,7 +18753,7 @@ msgid "Language"
 msgstr ""
 
 #: includes/admin/views/html-admin-page-status-report.php:225
-msgid "The current language used by WordPress. Default = English"
+msgid "The current language used by WordPress. Default = Korean"
 msgstr ""
 
 #: includes/admin/views/html-admin-page-status-report.php:229
