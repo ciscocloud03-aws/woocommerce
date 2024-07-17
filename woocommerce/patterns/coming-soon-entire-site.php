@@ -32,7 +32,7 @@ if ( 'twentytwentyfour' === $current_theme ) {
 <!-- /wp:group -->
 
 <!-- wp:group {"style":{"spacing":{"blockGap":"48px"}},"className":"woocommerce-coming-soon-social-login","layout":{"type":"flex","flexWrap":"nowrap"}} -->
-<div class="wp-block-group woocommerce-coming-soon-social-login"><!-- wp:social-links {"iconColor":"contrast","iconColorValue":"#111111","style":{"layout":{"selfStretch":"fit","flexSize":null},"spacing":{"blockGap":{"left":"18px"}}},"className":"is-style-logos-only"} -->
+<div class="wp-block-group woocommerce-coming-soon-social-login"><!-- wp:social-links {"iconColor":"contrast","iconColorValue":"#7A33FF","style":{"layout":{"selfStretch":"fit","flexSize":null},"spacing":{"blockGap":{"left":"18px"}}},"className":"is-style-logos-only"} -->
 <ul class="wp-block-social-links has-icon-color is-style-logos-only"><!-- wp:social-link {"url":"https://www.linkedin.com/","service":"linkedin"} /-->
 
 <!-- wp:social-link {"url":"https://www.instagram.com","service":"instagram"} /-->
@@ -79,7 +79,7 @@ body.custom-background {
 	background-color: #bea0f2;
 	font-family: 'Inter', sans-serif;
 	min-width: 320px;
-	--wp--preset--color--contrast: #111111;
+	--wp--preset--color--contrast: #7A33FF;
 	--wp--style--global--wide-size: 1280px;
 }
 body .is-layout-constrained > .alignwide {
