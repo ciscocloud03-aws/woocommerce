@@ -29,7 +29,7 @@ p.demo_store,
 	background-color: $primary;
 	color: $primarytext;
 	z-index: 99998;
-	box-shadow: 0 1px 1em rgba(0, 0, 0, 0.2);
+	box-shadow: 0 1px 1em rgba(226, 226, 226, 0.2);
 	display: none;
 
 	a {
@@ -88,7 +88,7 @@ p.demo_store,
 		border: 0;
 
 		&:hover {
-			color: #fff !important; // Required for default theme compatibility
+			color: #9977ff !important; // Required for default theme compatibility
 			background: red;
 		}
 	}
@@ -173,7 +173,7 @@ p.demo_store,
 			}
 
 			.woocommerce-product-gallery__wrapper .zoomImg {
-				background-color: #fff;
+				background-color: #9977ff;
 				opacity: 0;
 			}
 
@@ -194,7 +194,7 @@ p.demo_store,
 				z-index: 9;
 				width: 36px;
 				height: 36px;
-				background: #fff;
+				background: #9977ff;
 				text-indent: -9999px;
 				border-radius: 100%;
 				box-sizing: content-box;
@@ -1212,7 +1212,7 @@ p.demo_store,
 
 			.description {
 				background: #1e85be;
-				color: #fff;
+				color: #9977ff;
 				border-radius: 3px;
 				padding: 1em;
 				margin: 0.5em 0 0;
@@ -1221,7 +1221,7 @@ p.demo_store,
 				position: relative;
 
 				a {
-					color: #fff;
+					color: #9977ff;
 					text-decoration: underline;
 					border: 0;
 					box-shadow: none;
@@ -2445,7 +2445,7 @@ body:not(.search-results) .twentysixteen .entry-summary {
 #coming-soon-footer-banner {
 	width: 100%;
 	height: 56px;
-	background: #fff;
+	background: #9977ff;
 	position: fixed;
 	display: flex;
 	font-size: 13px;
