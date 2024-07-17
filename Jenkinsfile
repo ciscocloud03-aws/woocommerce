@@ -111,7 +111,6 @@ spec:
                          rm -rf /var/jenkins_home/workspace/woocommerce/woo-manifest && git clone https://${username}:${password}@github.com/ciscocloud03-aws/woo-manifest.git /var/jenkins_home/workspace/woocommerce/woo-manifest &&
                          cd /var/jenkins_home/workspace/woocommerce/woo-manifest && 
                          sed -i 's@image: .*@image: 339712790288.dkr.ecr.ap-northeast-2.amazonaws.com/woocommerce:${env.BUILD_NUMBER}@g' /var/jenkins_home/workspace/woocommerce/woo-manifest/woo-deploy.yaml &&
-                         cd /var/jenkins_home/workspace/woocommerce/woo-manifest &&
                          cat woo-deploy.yaml && id && git add -A &&
                          git status &&
                          git commit -m '[UPDATE] 5ka ${GIT_COMMIT} image versioning' &&
